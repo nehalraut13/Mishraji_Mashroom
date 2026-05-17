@@ -4,13 +4,26 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mishraji Fresh Oyster Mushrooms</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
+:root {
+    --primary: #1b4332;
+    --primary-light: #2d6a4f;
+    --accent: #40916c;
+    --light-bg: #f4f9f4;
+    --card-bg: #ffffff;
+    --text-dark: #2b2d2b;
+    --text-muted: #52635a;
+    --ai-glow: #74c69d;
+    --ai-purple: #4ee2a9;
+}
+
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    transition:0.3s;
+    transition:0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 html{
@@ -22,142 +35,465 @@ body{
     background:#f9fbf9;
     color:#2b2d2b;
     overflow-x:hidden;
+    line-height: 1.6;
 }
 
 /* NAVBAR */
 .navbar{
-    background:#1b4332;
+    background: rgba(27, 67, 50, 0.95);
+    backdrop-filter: blur(10px);
     color:white;
     text-align:center;
-    padding:18px;
-    font-size:22px;
+    padding:20px;
+    font-size:24px;
     font-weight:700;
     position:sticky;
     top:0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
-/* HERO */
+/* HERO & BACKGROUND */
 .hero{
     text-align:center;
-    padding:70px 20px;
-    background:linear-gradient(135deg,#e8f5e9,#d8f3dc);
+    padding:80px 20px 60px 20px;
+    background: radial-gradient(circle at top right, #e8f5e9, #d8f3dc, #f9fbf9);
+    position: relative;
 }
 
 .hero h1{
-    font-size:40px;
+    font-size:46px;
     color:#1b4332;
+    font-weight: 800;
+    margin-bottom: 5px;
+    letter-spacing: -0.5px;
     animation: slideDown 1s ease;
-}
-
-.hero img{
-    width:400px;
-    max-width:90%;
-    border-radius:20px;
-    margin:20px 0;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    animation: fadeIn 1.2s ease;
 }
 
 .hero p{
     font-size:18px;
     color:#40916c;
     font-weight:600;
+    display: inline-block;
+    background: rgba(255,255,255,0.7);
+    padding: 6px 22px;
+    border-radius: 50px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
 }
 
-/* INPUTS */
+.hero img{
+    width:400px;
+    max-width:90%;
+    border-radius:24px;
+    margin:0 auto 35px auto;
+    display: block;
+    box-shadow: 0 20px 40px rgba(27, 67, 50, 0.15);
+    animation: float 6s ease-in-out infinite;
+}
+
+/* INTERACTIVE ORDER CONTAINER */
+.order-container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(15px);
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 35px 30px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+.form-field {
+    position: relative;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-field i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--accent);
+    font-size: 16px;
+    z-index: 2;
+}
+
+/* INPUTS & SELECTS */
 input, select{
-    padding:12px;
-    width:250px;
-    border-radius:10px;
-    border:1px solid #ccc;
+    padding:16px 16px 16px 48px;
+    width:100%;
+    border-radius:14px;
+    border:2px solid #e2e8f0;
     font-size:16px;
-    margin-top:10px;
+    margin-top:0;
+    background: white;
+    outline: none;
+    color: var(--text-dark);
 }
 
-/* BUTTON */
+input:focus, select:focus{
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.15);
+    background: #ffffff;
+}
+
+/* WHATSAPP ACTION BUTTON */
 .btn{
-    background:#2d6a4f;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
     color:white;
-    padding:14px 36px;
+    padding:16px 36px;
     border:none;
     border-radius:50px;
     font-size:18px;
+    font-weight: 600;
     cursor:pointer;
-    margin-top:15px;
+    margin-top:10px;
+    width: 100%;
+    box-shadow: 0 8px 25px rgba(45, 106, 79, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .btn:hover{
     background:#1b4332;
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(45, 106, 79, 0.4);
 }
 
 .btn:active{
-    transform:scale(0.95);
+    transform:scale(0.98) translateY(-1px);
 }
 
-/* SECTION */
+/* SECTION STRUCTURES */
 .section{
-    padding:70px 20px;
+    padding:90px 20px;
     max-width:1200px;
     margin:auto;
     text-align:center;
 }
 
-/* GRID */
+.section h2 {
+    font-size: 36px;
+    color: var(--primary);
+    margin-bottom: 45px;
+    position: relative;
+    display: inline-block;
+    font-weight: 800;
+}
+
+.section h2::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 10px;
+}
+
+/* LAYOUT GRIDS */
 .grid-container{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
 }
 
 .card{
     background:white;
-    padding:25px;
-    border-radius:16px;
-    box-shadow:0 4px 8px rgba(0,0,0,0.05);
-    animation: popIn 0.6s ease;
+    padding:40px 30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.02);
+    border: 1px solid #edf2f7;
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, var(--accent), var(--primary-light));
+    transform: scaleX(0);
+    transition: transform 0.4s ease;
+}
+
+.card:hover::before {
+    transform: scaleX(1);
 }
 
 .card:hover{
-    transform:translateY(-10px) scale(1.02);
-    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(27, 67, 50, 0.08);
+}
+
+.card h3 {
+    font-size: 24px;
+    color: var(--text-dark);
+    margin-bottom: 10px;
 }
 
 .price{
-    font-size:22px;
-    font-weight:700;
-    color:#2d6a4f;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--primary-light);
+    margin-top: 12px;
 }
 
-/* FEATURE IMAGE */
+/* FEATURE IMAGES */
 .feature-card img{
-    width:80px;
-    height:80px;
+    width:90px;
+    height:90px;
     object-fit:contain;
-    margin-bottom:10px;
+    margin-bottom:20px;
 }
 
-/* CONTACT */
+.feature-card p {
+    font-weight: 700;
+    font-size: 19px;
+    color: var(--primary);
+}
+
+/* CYBER-ORGANIC AI DISPLAY BLOCK */
+.ai-section {
+    background: linear-gradient(135deg, #0b251a 0%, #04120b 100%);
+    color: white;
+    border-radius: 28px;
+    padding: 60px 40px;
+    margin: 20px auto;
+    max-width: 900px;
+    box-shadow: 0 25px 60px rgba(4, 18, 11, 0.35);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(116, 198, 157, 0.15);
+}
+
+/* Digital Grid Array Overlay Background */
+.ai-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: 
+        linear-gradient(rgba(116, 198, 157, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(116, 198, 157, 0.04) 1px, transparent 1px);
+    background-size: 25px 25px;
+    pointer-events: none;
+}
+
+.ai-glow-spot {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: radial-gradient(circle, rgba(78, 226, 169, 0.12) 0%, transparent 70%);
+    top: -50px;
+    right: -50px;
+    pointer-events: none;
+}
+
+.ai-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+}
+
+.ai-header h2 {
+    color: white;
+    margin: 0;
+    font-size: 32px;
+}
+.ai-header h2::after { display: none; }
+
+.ai-header i {
+    font-size: 28px;
+    color: var(--ai-purple);
+    text-shadow: 0 0 15px rgba(78, 226, 169, 0.6);
+    animation: pulseGlow 2s infinite ease-in-out;
+}
+
+.ai-section p.ai-subtitle {
+    position: relative;
+    z-index: 2;
+    color: #a3b8ae;
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 35px auto;
+}
+
+.ai-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.ai-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(116, 198, 157, 0.25);
+    color: #e8f5e9;
+    padding: 12px 24px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.ai-btn:hover {
+    background: linear-gradient(135deg, var(--ai-purple), #2d6a4f);
+    color: #04120b;
+    border-color: transparent;
+    box-shadow: 0 8px 20px rgba(78, 226, 169, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Chat Input Bar UI */
+.ai-custom-input {
+    display: flex;
+    max-width: 600px;
+    margin: 0 auto 30px auto;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.ai-custom-input input {
+    padding: 16px 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(116, 198, 157, 0.2);
+    color: white;
+    border-radius: 30px;
+}
+
+.ai-custom-input input:focus {
+    background: rgba(255, 255, 255, 0.12);
+    border-color: var(--ai-purple);
+    color: white;
+    box-shadow: 0 0 15px rgba(78, 226, 169, 0.1);
+}
+
+.ai-custom-input button {
+    background: var(--ai-purple);
+    border: none;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    color: #04120b;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(78, 226, 169, 0.3);
+}
+
+.ai-custom-input button:hover {
+    transform: scale(1.05);
+    background: white;
+}
+
+/* Chat Output Windows */
+.ai-response-wrapper {
+    position: relative;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 3px;
+    background: linear-gradient(135deg, rgba(116,198,157,0.2), transparent);
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.ai-status {
+    font-size: 13px;
+    color: var(--ai-purple);
+    text-align: left;
+    padding: 12px 20px 0 20px;
+    font-family: monospace;
+    font-weight: bold;
+    display: none;
+    background: #06180f;
+    border-top-left-radius: 14px;
+    border-top-right-radius: 14px;
+}
+
+.ai-response {
+    background: #06180f;
+    padding: 25px;
+    border-radius: 14px;
+    min-height: 90px;
+    color: #d1e7dd;
+    font-size: 16px;
+    border-left: 4px solid var(--ai-purple);
+    
+    /* ABSOLUTE WRAPPING ASSURANCE RULES */
+    display: block !important; 
+    white-space: normal !important; 
+    word-wrap: break-word !important;
+    word-break: break-word !important;
+    text-align: left !important;
+    overflow-wrap: break-word !important;
+}
+
+/* SCHEDULING CONTACT WRAPPER */
 .contact-box{
-    background:#e8f5e9;
-    padding:30px;
-    border-radius:15px;
-    max-width:500px;
-    margin:auto;
+    background: white;
+    padding: 40px;
+    border-radius: 24px;
+    max-width: 550px;
+    margin: auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+    border: 1px solid #edf2f7;
 }
 
-/* FLOAT BUTTON */
+.contact-box p {
+    font-size: 18px;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.contact-box p:last-child { margin-bottom: 0; }
+
+/* FLOATING CORE FOOTPRINT NAVIGATION ACTION */
 .floating-btn{
     position:fixed;
-    bottom:20px;
-    right:20px;
-    background:#2d6a4f;
+    bottom:30px;
+    right:30px;
+    background: var(--primary-light);
     color:white;
     border:none;
-    padding:15px 20px;
+    padding: 16px 26px;
     border-radius:50px;
     cursor:pointer;
-    box-shadow:0 10px 20px rgba(0,0,0,0.2);
-    animation:pulse 2s infinite;
+    font-weight: 700;
+    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.4);
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 16px;
+}
+
+.floating-btn:hover {
+    background: var(--primary);
+    transform: scale(1.06) translateY(-2px);
 }
 
 /* FOOTER */
@@ -165,49 +501,60 @@ footer{
     background:#1b4332;
     color:#b7e4c7;
     text-align:center;
-    padding:20px;
-    margin-top:50px;
+    padding:30px;
+    margin-top:80px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
 }
 
-/* TOAST */
+/* TOAST OVERLAYS */
 #toast{
     position:fixed;
-    bottom:30px;
+    bottom:40px;
     left:50%;
-    transform:translateX(-50%);
-    background:#2d6a4f;
+    transform:translateX(-50%) translateY(100px);
+    background:#1e293b;
     color:white;
-    padding:12px 20px;
+    padding:16px 28px;
     border-radius:30px;
-    display:none;
+    font-weight: 600;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+    z-index: 2000;
+    opacity: 0;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn{
-    from{opacity:0; transform:translateY(20px);}
+#toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* KEYFRAMES LIBRARY */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes slideDown {
+    from{opacity:0; transform:translateY(-40px);}
     to{opacity:1; transform:translateY(0);}
 }
 
-@keyframes slideDown{
-    from{opacity:0; transform:translateY(-30px);}
-    to{opacity:1; transform:translateY(0);}
+@keyframes pulseGlow {
+    0% { text-shadow: 0 0 10px rgba(78, 226, 169, 0.4); transform: scale(1); }
+    50% { text-shadow: 0 0 25px rgba(78, 226, 169, 0.8); transform: scale(1.1); }
+    100% { text-shadow: 0 0 10px rgba(78, 226, 169, 0.4); transform: scale(1); }
 }
 
-@keyframes popIn{
-    from{opacity:0; transform:scale(0.9);}
-    to{opacity:1; transform:scale(1);}
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(45,106,79,0.5);}
-    70%{box-shadow:0 0 0 15px rgba(45,106,79,0);}
-    100%{box-shadow:0 0 0 0 rgba(45,106,79,0);}
-}
-
-/* MOBILE */
+/* BREAKPOINT SCHEMATICS */
 @media(max-width:768px){
-    .hero h1{font-size:28px;}
+    .hero h1{font-size:34px;}
     .hero img{width:100%;}
+    .order-container { padding: 25px 20px; }
+    .ai-section { padding: 40px 20px; }
+    .ai-header h2 { font-size: 24px; }
+    .ai-custom-input { flex-direction: row; gap: 8px; }
+    .section { padding: 60px 20px; }
 }
 </style>
 </head>
@@ -225,28 +572,66 @@ footer{
 
     <p>Healthy • Organic • Fresh Daily</p>
 
-    <input id="name" placeholder="Your Name">
-    <input id="phone" placeholder="Phone Number">
-    <input id="location" placeholder="Delivery Location">
+    <div class="order-container">
+        <div class="form-field">
+            <i class="fa-solid fa-user"></i>
+            <input id="name" placeholder="Your Name">
+        </div>
+        <div class="form-field">
+            <i class="fa-solid fa-phone"></i>
+            <input id="phone" placeholder="Phone Number">
+        </div>
+        <div class="form-field">
+            <i class="fa-solid fa-location-dot"></i>
+            <input id="location" placeholder="Delivery Location">
+        </div>
+        <div class="form-field">
+            <i class="fa-solid fa-layer-group"></i>
+            <select id="qty">
+                <option value="150gm - ₹60">150gm - ₹60</option>
+                <option value="300gm - ₹120">300gm - ₹120</option>
+                <option value="500gm - ₹200">500gm - ₹200</option>
+            </select>
+        </div>
+        <button class="btn" onclick="sendOrder()">
+            <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
+        </button>
+    </div>
+</div>
 
-    <br>
+<div class="section">
+    <div class="ai-section">
+        <div class="ai-glow-spot"></div>
+        <div class="ai-header">
+            <i class="fa-solid fa-microchip"></i>
+            <h2>Mishraji Mushroom AI Assistant</h2>
+        </div>
+        <p class="ai-subtitle">Ask anything or select an automated prompt below to generate culinary, logistical, and scientific insights instantly.</p>
+        
+        <div class="ai-buttons">
+            <button class="ai-btn" onclick="askAI('recipe')">Quick Recipe Guide 🍲</button>
+            <button class="ai-btn" onclick="askAI('health')">Nutritional Values 🧬</button>
+            <button class="ai-btn" onclick="askAI('storage')">Optimal Storage ❄️</button>
+            <button class="ai-btn" onclick="askAI('weight')">Weight Loss? 📉</button>
+            <button class="ai-btn" onclick="askAI('clean')">How to Clean? 🧼</button>
+        </div>
 
-    <select id="qty">
-        <option value="150gm - ₹60">150gm - ₹60</option>
-        <option value="300gm - ₹120">300gm - ₹120</option>
-        <option value="500gm - ₹200">500gm - ₹200</option>
-    </select>
+        <div class="ai-custom-input">
+            <input id="aiUserQuery" placeholder="Type custom questions (e.g., cooking, freshness, features)..." onkeypress="if(event.key === 'Enter') handleCustomQuery()">
+            <button onclick="handleCustomQuery()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
 
-    <br>
-
-    <button class="btn" onclick="sendOrder()">Order on WhatsApp</button>
+        <div class="ai-response-wrapper">
+            <div id="aiStatus" class="ai-status"></div>
+            <div class="ai-response" id="aiResponse">Click an automated tracking chip prompt or submit a question above!</div>
+        </div>
+    </div>
 </div>
 
 <div class="section">
     <h2>Our Products</h2>
 
     <div class="grid-container">
-
         <div class="card">
             <h3>150gm Pack</h3>
             <p class="price">₹60</p>
@@ -261,7 +646,6 @@ footer{
             <h3>500gm Pack</h3>
             <p class="price">₹200</p>
         </div>
-
     </div>
 </div>
 
@@ -269,7 +653,6 @@ footer{
     <h2>Why Choose Us</h2>
 
     <div class="grid-container">
-
         <div class="card feature-card">
             <img src="static/images/logo.jpg">
             <p>Trusted Brand</p>
@@ -284,15 +667,14 @@ footer{
             <img src="static/images/farm.jpg">
             <p>Farm Fresh</p>
         </div>
-
     </div>
 </div>
 
 <div class="section">
     <h2>Contact</h2>
     <div class="contact-box">
-        <p><strong>Mobile:</strong> +91 85519 15295</p>
-        <p><strong>Location:</strong> Maharashtra, India</p>
+        <p><i class="fa-solid fa-mobile-screen-button" style="color: var(--accent)"></i> <strong>Mobile:</strong> +91 85519 15295</p>
+        <p><i class="fa-solid fa-location-crosshairs" style="color: var(--accent)"></i> <strong>Location:</strong> Maharashtra, India</p>
     </div>
 </div>
 
@@ -301,7 +683,7 @@ footer{
 </footer>
 
 <button class="floating-btn" onclick="document.querySelector('.hero').scrollIntoView()">
-    Order Now
+    <i class="fa-solid fa-basket-shopping"></i> Order Now
 </button>
 
 <div id="toast">Order sent successfully 🚀</div>
@@ -318,11 +700,7 @@ function sendOrder(){
         return;
     }
 
-    let msg = `Hello, I want to order mushrooms:
-Name: ${name}
-Phone: ${phone}
-Location: ${location}
-Quantity: ${qty}`;
+    let msg = `Hello, I want to order mushrooms:\nName: ${name}\nPhone: ${phone}\nLocation: ${location}\nQuantity: ${qty}`;
 
     window.open(
         "https://wa.me/918551915295?text=" + encodeURIComponent(msg),
@@ -334,14 +712,86 @@ Quantity: ${qty}`;
 
 function showToast(){
     let toast = document.getElementById("toast");
-    toast.style.display = "block";
+    toast.classList.add("show");
 
     setTimeout(()=>{
-        toast.style.display = "none";
+        toast.classList.remove("show");
     }, 2500);
 }
 
-/* Scroll animation */
+/* BASE STRINGS */
+const aiData = {
+    recipe: "🍲 AI Suggestion: Try a quick Garlic Butter Mushroom stir-fry! Shave down the fresh oyster shreds. Drop into an open skillet with unsalted butter, minced garlic, and cracked pepper. Sauté for 6 mins until crispy gold!",
+    health: "🧬 Health Stats: Oyster mushrooms carry high quantities of immunity supporting antioxidants, are naturally cholesterol free, packed with dietary fiber, metabolic enzymes, and rich Vitamin D complexes.",
+    storage: "❄️ Storage Protocol: Keep them breathing! Store safely inside a raw paper bag in your refrigerator vegetable bin. Avoid packed air-tight polybags to safely maintain original texture for up to 5-6 days.",
+    weight: "📉 Weight Management: Yes! Oyster mushrooms are incredibly low in calories (around 30 calories per cup), contain virtually zero fat, and are highly rich in water and fiber content, making them perfect for dietary adjustments.",
+    clean: "🧼 Prep Guide: Never soak oyster mushrooms directly in standing water because they act like sponges and get soggy! Instead, gently wipe away surface dust using a clean dry cloth, then lightly rinse right before cooking.",
+    fallback: "🤖 Notice: I have flagged your custom query! For custom pricing models, commercial bulk order quotes, or specific tracking logistics across Maharashtra zones, tap the 'Order on WhatsApp' window button above to safely route to farm staff!"
+};
+
+let typingTimer = null;
+
+function askAI(type) {
+    let responseBox = document.getElementById("aiResponse");
+    let statusBox = document.getElementById("aiStatus");
+    
+    if(typingTimer) clearInterval(typingTimer);
+    
+    responseBox.style.opacity = "0.4";
+    statusBox.style.display = "block";
+    statusBox.innerText = "⚡ MISHRAJI-BOT PROCESSING DATA...";
+    
+    setTimeout(() => {
+        responseBox.style.opacity = "1";
+        statusBox.innerText = "✨ DYNAMIC RESPONSE GENERATED:";
+        
+        let fullText = aiData[type] || aiData['fallback'];
+        responseBox.innerHTML = ""; // Clear existing text safely
+        
+        let index = 0;
+        typingTimer = setInterval(() => {
+            if (index < fullText.length) {
+                let char = fullText.charAt(index);
+                
+                // CRITICAL TYPEWRITER SPACE CONVERSION FIX
+                if (char === " ") {
+                    responseBox.innerHTML += "&nbsp;";
+                } else {
+                    responseBox.innerHTML += char;
+                }
+                index++;
+            } else {
+                clearInterval(typingTimer);
+                statusBox.innerText = "● AI ENGINE STANDBY";
+            }
+        }, 15);
+        
+    }, 450);
+}
+
+function handleCustomQuery() {
+    let inputEl = document.getElementById("aiUserQuery");
+    let query = inputEl.value.toLowerCase().trim();
+    if(!query) return;
+
+    if(query.includes("recipe") || query.includes("cook") || query.includes("eat") || query.includes("dish")) {
+        askAI("recipe");
+    } else if (query.includes("health") || query.includes("benefit") || query.includes("nutrition") || query.includes("protein") || query.includes("vitamin")) {
+        askAI("health");
+    } else if (query.includes("store") || query.includes("fridge") || query.includes("days") || query.includes("fresh") || query.includes("spoil")) {
+        askAI("storage");
+    } else if (query.includes("weight") || query.includes("fat") || query.includes("diet") || query.includes("calories")) {
+        askAI("weight");
+    } else if (query.includes("clean") || query.includes("wash") || query.includes("dirty") || query.includes("prep")) {
+        askAI("clean");
+    } else {
+        askAI("fallback");
+    }
+    
+    inputEl.value = "";
+}
+
+/* Scroll Intersections Engine */
 const observer = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
         if(entry.isIntersecting){
@@ -349,11 +799,12 @@ const observer = new IntersectionObserver(entries=>{
             entry.target.style.transform = "translateY(0)";
         }
     });
-});
+}, { threshold: 0.05 });
 
-document.querySelectorAll(".card, .section").forEach(el=>{
+document.querySelectorAll(".card, .section, .order-container").forEach(el=>{
     el.style.opacity = 0;
-    el.style.transform = "translateY(20px)";
+    el.style.transform = "translateY(25px)";
+    el.style.transition = "all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)";
     observer.observe(el);
 });
 </script>
