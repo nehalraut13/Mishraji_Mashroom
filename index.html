@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mishraji Fresh Oyster Mushrooms</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    transition:0.3s;
+}
+
+body{
+    font-family:'Segoe UI',sans-serif;
+    background:#f9fbf9;
+    color:#2b2d2b;
+}
+
+.navbar{
+    background:#1b4332;
+    color:white;
+    text-align:center;
+    padding:20px;
+    font-size:24px;
+    font-weight:700;
+    position:sticky;
+    top:0;
+    box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+    background:linear-gradient(180deg,#e8f5e9,#f9fbf9);
+}
+
+.hero h1{
+    font-size:42px;
+    color:#1b4332;
+}
+
+.hero img{
+    width:400px;
+    max-width:90%;
+    border-radius:20px;
+    margin:20px 0;
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+}
+
+.hero p{
+    font-size:20px;
+    color:#40916c;
+    font-weight:600;
+}
+
+.btn{
+    background:#2d6a4f;
+    color:white;
+    padding:14px 36px;
+    border:none;
+    border-radius:50px;
+    font-size:18px;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.btn:hover{
+    background:#1b4332;
+}
+
+.section{
+    padding:80px 20px;
+    max-width:1200px;
+    margin:auto;
+    text-align:center;
+}
+
+.section h2{
+    font-size:32px;
+    color:#1b4332;
+    margin-bottom:40px;
+}
+
+.grid-container{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.card{
+    background:white;
+    padding:30px 20px;
+    border-radius:16px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.05);
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.feature-card img{
+    width:100px;
+    height:100px;
+    object-fit:contain;
+    margin-bottom:15px;
+}
+
+.price{
+    font-size:24px;
+    font-weight:700;
+    color:#2d6a4f;
+}
+
+.contact-box{
+    background:#e8f5e9;
+    padding:40px;
+    border-radius:20px;
+    max-width:600px;
+    margin:auto;
+}
+
+select{
+    padding:12px;
+    width:250px;
+    border-radius:10px;
+    border:1px solid #ccc;
+    font-size:16px;
+    margin-top:20px;
+}
+
+footer{
+    background:#1b4332;
+    color:#b7e4c7;
+    text-align:center;
+    padding:25px;
+    margin-top:60px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    Mishraji Fresh Oyster Mushrooms
+</div>
+
+<div class="hero">
+    <h1>Farm Fresh Oyster Mushrooms</h1>
+    <img src="static/images/mushroom.jpg" alt="Mushroom">
+    <p>Healthy • Organic • Fresh Daily</p>
+
+    <br>
+
+    <select id="qty">
+        <option value="250gm - ₹80">250gm - ₹80</option>
+        <option value="500gm - ₹150">500gm - ₹150</option>
+        <option value="1kg - ₹280">1kg - ₹280</option>
+    </select>
+
+    <br>
+
+    <button class="btn" onclick="sendOrder()">Order on WhatsApp</button>
+</div>
+
+<div class="section">
+    <h2>Our Products</h2>
+
+    <div class="grid-container">
+
+        <div class="card">
+            <h3>250gm Pack</h3>
+            <p>Fresh Oyster Mushroom</p>
+            <p class="price">₹80</p>
+        </div>
+
+        <div class="card">
+            <h3>500gm Pack</h3>
+            <p>Fresh Oyster Mushroom</p>
+            <p class="price">₹150</p>
+        </div>
+
+        <div class="card">
+            <h3>1kg Pack</h3>
+            <p>Bulk Order Savings</p>
+            <p class="price">₹280</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <h2>Why Choose Mishraji Mushrooms</h2>
+
+    <div class="grid-container">
+
+        <div class="card feature-card">
+            <img src="static/images/logo.png">
+            <p>Mishraji Brand Trust</p>
+        </div>
+
+        <div class="card feature-card">
+            <img src="static/images/superfood.png">
+            <p>Plant Based Protein</p>
+        </div>
+
+        <div class="card feature-card">
+            <img src="static/images/organic.png">
+            <p>100% Organic</p>
+        </div>
+
+        <div class="card feature-card">
+            <img src="static/images/farm.png">
+            <p>Farm to Table</p>
+        </div>
+
+        <div class="card feature-card">
+            <img src="static/images/nature.png">
+            <p>Nature's Best</p>
+        </div>
+
+        <div class="card feature-card">
+            <img src="static/images/label.png">
+            <p>Premium Packaging</p>
+        </div>
+
+    </div>
+</div>
+
+<div class="section">
+    <h2>Contact Us</h2>
+    <div class="contact-box">
+        <p><strong>Mobile:</strong> +91 85519 15295</p>
+        <p><strong>Location:</strong> Maharashtra, India</p>
+    </div>
+</div>
+
+<footer>
+    © Mishraji Mushroom Farm. All Rights Reserved.
+</footer>
+
+<script>
+function sendOrder(){
+    let qty = document.getElementById("qty").value;
+
+    let msg = "Hello, I want to order fresh mushrooms.%0AQuantity: " + qty;
+
+    window.open("https://wa.me/918551915295?text=" + msg, "_blank");
+}
+</script>
+
+</body>
+</html>
