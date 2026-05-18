@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="mr" class="notranslate" translate="no">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<!-- GOOGLE TRANSLATE BANNER DISABLE TAGS -->
+<meta name="google" content="notranslate">
+<meta name="google" content="sitemaps">
+
 <title>Mishraji Fresh Oyster Mushrooms | Premium Suite</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -172,8 +176,9 @@ body {
     transition: transform 0.3s;
 }
 
+/* MOBILE FIX: STRICT 16PX MINIMUM & OPTIMIZED PADDING TO PREVENT AUTO-ZOOM */
 input, select {
-    padding: 20px 20px 20px 56px;
+    padding: 16px 16px 16px 56px;
     width: 100%;
     border-radius: 18px;
     border: 1px solid rgba(20, 77, 49, 0.2);
@@ -182,14 +187,14 @@ input, select {
     color: var(--text-dark);
     outline: none;
     font-weight: 600;
-    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 input:focus, select:focus {
     border-color: var(--primary-neon);
     background: #ffffff;
     box-shadow: 0 0 0 6px rgba(29, 209, 161, 0.18);
-    transform: translateY(-1px);
+    transform: none;
 }
 
 .form-field input:focus + i {
@@ -396,6 +401,12 @@ input:focus, select:focus {
     cursor: pointer;
 }
 
+.feature-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .feature-card img {
     width: 95px;
     height: 95px;
@@ -553,7 +564,6 @@ input:focus, select:focus {
     transform: translateY(-3px);
 }
 
-/* ACTIVE FILTER CHIP GLOW CLASS */
 .ai-btn.active-chip {
     background: var(--primary-neon);
     color: var(--bg-dark);
@@ -571,10 +581,11 @@ input:focus, select:focus {
 }
 
 .ai-custom-input input {
-    padding: 20px 28px;
+    padding: 16px 24px;
     background: rgba(255, 255, 255, 0.07);
     border: 1px solid rgba(29, 209, 161, 0.25);
     color: white;
+    font-size: 16px;
     border-radius: 50px;
 }
 
@@ -582,17 +593,18 @@ input:focus, select:focus {
     background: rgba(255, 255, 255, 0.12);
     border-color: var(--primary-neon);
     box-shadow: 0 0 25px rgba(29, 209, 161, 0.25);
+    transform: none;
 }
 
 .ai-custom-input button {
     background: var(--primary-neon);
     border: none;
-    width: 62px;
-    height: 62px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
     color: var(--bg-dark);
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -640,12 +652,12 @@ input:focus, select:focus {
     word-wrap: break-word !important;
 }
 
-/* CONTACT PLATFORM CONSOLE */
+/* CONTACT PLATFORM CONSOLE - CLEAN ACTION LINKS */
 .contact-box {
     background: var(--glass-light);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    padding: 50px;
+    padding: 45px 30px;
     border-radius: 36px;
     max-width: 580px;
     margin: auto;
@@ -653,17 +665,32 @@ input:focus, select:focus {
     box-shadow: 0 25px 55px rgba(11, 47, 29, 0.05);
 }
 
-.contact-box p {
-    font-size: 20px;
-    margin-bottom: 24px;
+.contact-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 14px;
+    font-size: 19px;
     font-weight: 700;
+    margin-bottom: 24px;
 }
 
-.contact-box p:last-child { margin-bottom: 0; }
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 800;
+    border-bottom: 2px dashed rgba(20, 77, 49, 0.3);
+    transition: all 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #1a6b43;
+    border-bottom-color: #1a6b43;
+}
 
 /* TELEPORT FLOATING INTERACTION TRIGGER BUTTON */
 .floating-btn {
@@ -673,7 +700,7 @@ input:focus, select:focus {
     background: linear-gradient(135deg, #1dd1a1, #144d31);
     color: white;
     border: none;
-    padding: 20px 32px;
+    padding: 16px 28px;
     border-radius: 50px;
     cursor: pointer;
     font-weight: 800;
@@ -682,7 +709,7 @@ input:focus, select:focus {
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 17px;
+    font-size: 16px;
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -751,12 +778,14 @@ footer {
 
 /* RESPONSIVE SCALING VIEWPORTS */
 @media(max-width: 768px) {
-    .hero h1 { font-size: 40px; }
+    .hero h1 { font-size: 36px; }
     .img-frame { width: 100%; }
-    .order-container { padding: 35px 25px; }
-    .ai-section { padding: 50px 25px; }
-    .ai-header h2 { font-size: 28px; }
-    .section { padding: 80px 15px; }
+    .order-container { padding: 30px 20px; }
+    .ai-section { padding: 40px 20px; }
+    .ai-header h2 { font-size: 24px; }
+    .ai-custom-input { flex-direction: row; gap: 10px; }
+    .ai-custom-input button { width: 50px; height: 50px; flex-shrink: 0; }
+    .section { padding: 60px 15px; }
     .quantity-counter-wrapper { flex-direction: column; align-items: stretch; gap: 12px; }
     .price-display-box { text-align: center; margin-top: 5px; }
 }
@@ -830,7 +859,7 @@ footer {
             <button class="ai-btn" onclick="handleChipClick(this, 'health')">पौष्टिक मूल्ये 🧬</button>
             <button class="ai-btn" onclick="handleChipClick(this, 'storage')">योग्य साठवणूक ❄️</button>
             <button class="ai-btn" onclick="handleChipClick(this, 'weight')">वजन कमी करण्यासाठी? 📉</button>
-            <button class="ai-btn" onclick="handleChipClick(this, 'clean')">कসে स्वच्छ करावे? 🧼</button>
+            <button class="ai-btn" onclick="handleChipClick(this, 'clean')">कसे स्वच्छ करावे? 🧼</button>
         </div>
 
         <div class="ai-custom-input">
@@ -869,12 +898,15 @@ footer {
     </div>
 </div>
 
+<!-- WHY CHOOSE US WITH CLICKABLE LOGOS/IMAGES -->
 <div class="section reveal-element">
     <h2>Why Choose Us</h2>
 
     <div class="grid-container">
         <div class="card feature-card reveal-element" onclick="toggleFeatureCard(this)">
-            <img src="static/images/logo.jpg" alt="Trusted Brand">
+            <a href="#orderForm" class="feature-link" onclick="event.stopPropagation();">
+                <img src="static/images/logo.jpg" alt="Trusted Brand">
+            </a>
             <p>Trusted Brand</p>
             <div class="card-hint-text">अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i></div>
             
@@ -888,7 +920,9 @@ footer {
         </div>
 
         <div class="card feature-card reveal-element" onclick="toggleFeatureCard(this)">
-            <img src="static/images/organic.jpg" alt="100% Organic">
+            <a href="#orderForm" class="feature-link" onclick="event.stopPropagation();">
+                <img src="static/images/organic.jpg" alt="100% Organic">
+            </a>
             <p>100% Organic</p>
             <div class="card-hint-text">अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i></div>
             
@@ -896,13 +930,15 @@ footer {
                 <ul>
                     <li><i class="fa-solid fa-leaf"></i> कोणत्याही रासायनिक खतांचा किंवा कीटकनाशकांचा वापर केला जात नाही.</li>
                     <li><i class="fa-solid fa-leaf"></i> शुद्ध आणि नैसर्गिक वातावरणात मशरूमची नैसर्गिक रित्या पैदास केली जाते.</li>
-                    <li><i class="fa-solid fa-leaf"></i> निसर्गाचा समतोल राखून तयार केलेले आरोग्यासाठी १००% सुरक्षित अन्न.</li>
+                    <li><i class="fa-solid fa-leaf"></i> सेंद्रिय खतांचा वापर करून आरोग्यवर्धक उत्पादन घेतले जाते.</li>
                 </ul>
             </div>
         </div>
 
         <div class="card feature-card reveal-element" onclick="toggleFeatureCard(this)">
-            <img src="static/images/farm.jpg" alt="Farm Fresh">
+            <a href="#orderForm" class="feature-link" onclick="event.stopPropagation();">
+                <img src="static/images/farm.jpg" alt="Farm Fresh">
+            </a>
             <p>Farm Fresh</p>
             <div class="card-hint-text">अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i></div>
             
@@ -917,23 +953,26 @@ footer {
     </div>
 </div>
 
+<!-- CONTACT SUITE WITH UPDATED LABELS AND INTERACTION -->
 <div class="section reveal-element">
     <h2>Contact Suite</h2>
     <div class="contact-box">
-        <p>
-            <i class="fa-solid fa-phone" style="color: #248a58"></i> 
-            <strong>Direct Call:</strong> 
-            <a href="tel:+918551915295" style="color: var(--text-dark); text-decoration: none; font-weight: 800;">+91 85519 15295</a>
-        </p>
-        <p>
-            <i class="fa-brands fa-whatsapp" style="color: #1dd1a1"></i> 
-            <strong>WhatsApp:</strong> 
-            <a href="https://wa.me/918551915295" target="_blank" style="color: var(--text-dark); text-decoration: none; font-weight: 800;">Chat / Call on WhatsApp</a>
-        </p>
-        <p>
-            <i class="fa-solid fa-location-crosshairs" style="color: #248a58"></i> 
-            <strong>Location:</strong> कारंजा (दत्त), Maharashtra, India
-        </p>
+        <div class="contact-item">
+            <i class="fa-brands fa-whatsapp" style="color: #1dd1a1; font-size: 24px;"></i> 
+            <span><strong>WhatsApp:</strong> 
+                <a href="https://wa.me/918551915295" target="_blank" class="contact-link">Chat / Call on WhatsApp</a>
+            </span>
+        </div>
+        <div class="contact-item">
+            <i class="fa-solid fa-phone" style="color: #248a58; font-size: 22px;"></i> 
+            <span><strong>Direct Call:</strong> 
+                <a href="tel:+918551915295" class="contact-link">+91 85519 15295</a>
+            </span>
+        </div>
+        <div class="contact-item">
+            <i class="fa-solid fa-location-crosshairs" style="color: #248a58; font-size: 22px;"></i> 
+            <span><strong>Location:</strong> कारंजा (दत्त), Maharashtra, India</span>
+        </div>
     </div>
 </div>
 
@@ -1011,26 +1050,23 @@ function selectProduct(value) {
     document.getElementById("packCountDisplay").innerText = currentPackCount;
     calculateTotalPrice();
     document.getElementById("orderForm").scrollIntoView();
-    showToast(`निवдलेले उत्पादन: ${value} 🛒`, false);
+    showToast(`निवडलेले उत्पादन: ${value} 🛒`, false);
 }
 
 function toggleFeatureCard(cardElement) {
     const isExpanded = cardElement.classList.contains('expanded');
     
-    // Close all feature cards first
     document.querySelectorAll('.feature-card').forEach(card => {
         card.classList.remove('expanded');
         card.querySelector('.card-hint-text').innerHTML = 'अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i>';
     });
     
-    // Toggle clicked card
     if (!isExpanded) {
         cardElement.classList.add('expanded');
         cardElement.querySelector('.card-hint-text').innerHTML = 'माहिती लपवा <i class="fa-solid fa-chevron-up"></i>';
     }
 }
 
-/* ================= EXTRACTION KNOWLEDGE ENGINE BASE ================= */
 const aiData = {
     recipe: `🍲 <strong>गार्लिक बटर मशरूम फ्राय (६ मिनिटे):</strong><br>
     १. ऑयस्टर मशरूम कापून कोरडे करा.<br>
@@ -1039,7 +1075,7 @@ const aiData = {
     
     health: `🧬 <strong>पौष्टिक आणि रोगप्रतिकारक शक्तीवर्धक मूल्ये:</strong><br>
     • <strong>व्हिटॅमिन डी आणि बी-कॉम्प्लेक्स:</strong> हाडांच्या मजबुतीसाठी आणि ऊर्जेसाठी अत्यंत फायदेशीर.<br>
-    • <strong>अँटीऑक्सिडंट्स (Ergothioneine):</strong> शरीरातील जुने आजार आणि सूज कमी करण्यास मदत करते.<br>
+    • <strong>अँटीऑक्सिडंट्स (Ergothioneine):</strong> शरीरातील जुने आजार आणि सूज कमी करण्यास मदत Thread.<br>
     • <strong>शून्य कोलेस्टेरॉल:</strong> हृदयविकार आणि हाय बीपी असलेल्या रुग्णांसाठी उत्तम नैसर्गिक आहार.`,
     
     storage: `❄️ <strong>मशरूम साठवण्याची अचूक व्यावसायिक पद्धत:</strong><br>
@@ -1055,201 +1091,88 @@ const aiData = {
     • <strong>उपाय:</strong> ओल्या सुती कपड्याने किंवा ब्रशने वरील हलकी धूळ पुसून घ्या. शिजवण्याच्या अगदी १ मिनिट आधी हलकेच धुवून घ्या.`,
     
     soup: `🥣 <strong>मशरूम इम्युनिटी बुस्टर सूप:</strong><br>
-    • मशरूम, कांदा आणि लसूण बटरमध्ये परतून घ्या. त्यात थोडे पाणी टाकून उकळवून घ्या. नंतर मिक्सरमधून वाटून घ्या. चवीसाठी काळी मिरी पावडर आणि फ्रेश क्रीम मिक्स करा!`,
+    • मशरूम, कांदा आणि लसूण बटरमध्ये परतून घ्या. त्यात थोडे पाणी टाकून उकळवून घ्या. नंतर मिक्सरमधून वाटून घ्या. काळी मिरी पावडर आणि फ्रेश क्रीम मिक्स करा!`,
     
     masala: `🍛 <strong>मशरूम मसाला ग्रेव्ही (हॉटेल स्टाईल):</strong><br>
-    • कांदा, टोमॅटो, आले-लसूण आणि थोडे काजू यांची एकत्र कढईत ग्रेव्ही बनवा. तेल गरम करून हा मसाला परता आणि त्यात ताजे ऑयस्टर मशरूमचे तुकडे घालून ५ मिनिटे वाफेवर शिजवा. चपाती किंवा जिरा राईससोबत सर्व्ह करा.`,
+    • कांदा, टोमॅटो, आले-लसूण आणि थोडे काजू यांची एकत्र कढईत ग्रेव्ही बनवा. तेल गरम करून हा मसाला परता... आणि त्यात ताजे ऑयस्टर मशरूमचे तुकडे घालून ५ मिनिटे वाफेवर शिजवा. चपाती किंवा जिरा राईससोबत सर्व्ह करा.`,
 
     kids: `👶 <strong>लहान मुलांच्या आहारासाठी फायदे:</strong><br>
-    • ऑयस्टर मशरूम मऊ आणि पचनास सोपे असतात. यातील 'झिंक' आणि 'व्हिटॅमिन डी' लहान मुलांची शारीरिक वाढ आणि मानसिक एकाग्रता वाढवण्यास प्रचंड मदत करतात. तुम्ही हे सूप किंवा पराठ्यामध्ये मिक्स करून देऊ शकता.`,
+    • ऑयस्टर मशरूम मऊ आणि पचनास सोपे असतात. यातील 'झिंक' आणि 'व्हिटॅमिन डी' लहान मुलांची शारीरिक वाढ आणि मानसिक एकाग्रता वाढवण्यास प्रचंड मदत करतात.`,
 
-    business: `🍄 <strong>घाऊक (Bulk) खरेदी आणिホットेल सप्लाय:</strong><br>
-    • आम्ही लग्नकार्ये, हॉटेल्स, केटरर्स आणि किरकोळ भाजी विक्रेत्यांना थेट फार्ममधून घाऊक दरात मशरूम सप्लाय करतो. व्यावसायिक सवलतींचे दरपत्रक मिळवण्यासाठी कृपया वरील <strong>'Order on WhatsApp'</strong> वर क्लिक करा.`,
+    business: `🍄 <strong>घाऊक (Bulk) खरेदी आणि हॉटेल सप्लाय:</strong><br>
+    • आम्ही लग्नकार्ये, हॉटेल्स, केटरर्स आणि किरकोळ भाजी विक्रेत्यांना थेट फार्ममधून घाऊक दरात मशरूम सप्लाय करतो. अधिक माहितीसाठी 'Order on WhatsApp' वर क्लिक करा.`,
 
     delivery: `📍 <strong>डिलिव्हरी आणि वाहतूक क्षेत्र:</strong><br>
-    • <strong>कारंजा (दत्त)</strong> शहरात आणि आजूबाजूच्या स्थानिक भागात घरपोच जलद डिलिव्हरी उपलब्ध आहे. अमरावती किंवा इतर जिल्ह्यांसाठी बल्क ऑर्डर्स ट्रॅव्हल्स किंवा मालवाहतुकीने पाठवल्या जातात.`,
-    
-    fallback: `🤖 <strong>सल्ला व सानुकूल मदत:</strong><br>
-    • तुमच्या प्रश्नाचे अचूक वर्गीकरण करता आले नाही! व्यावसायिक शेती माहिती, मोठ्या ऑर्डर्स किंवा इतर सल्ल्यासाठी वरील <strong>'Order on WhatsApp'</strong> बटणावर क्लिक करून थेट आमच्याशी संपर्क साधा.`
+    • <strong>कारंजा (दत्त)</strong> शहरात आणि आजूबाजूच्या स्थानिक भागात घरपोच जलद डिलिव्हरी उपलब्ध आहे.`
 };
-
-const alternateChips = {
-    recipe: [
-        { label: "मशरूम सूप रेसिपी 🥣", key: "soup" },
-        { label: "मशरूम मसाला भाजी 🍛", key: "masala" },
-        { label: "मुख्य मेनूवर जा ↩️", key: "RESET" }
-    ],
-    soup: [{ label: "मुख्य मेनूवर जा ↩️", key: "RESET" }],
-    masala: [{ label: "मुख्य मेनूवर जा ↩️", key: "RESET" }],
-    health: [
-        { label: "लहान मुलांसाठी फायदे? 👶", key: "kids" },
-        { label: "मुख्य मेनूवर जा ↩️", key: "RESET" }
-    ],
-    kids: [{ label: "मुख्य मेनूवर जा ↩️", key: "RESET" }]
-};
-
-const defaultChips = [
-    { label: "झटपट रेसिपी गाईड 🍲", key: "recipe" },
-    { label: "पौष्टिक मूल्ये 🧬", key: "health" },
-    { label: "योग्य साठवणूक ❄️", key: "storage" },
-    { label: "वजन कमी करण्यासाठी? 📉", key: "weight" },
-    { label: "कसे स्वच्छ करावे? 🧼", key: "clean" }
-];
-
-let typingTimer = null;
 
 function handleChipClick(element, key) {
-    let allChips = document.querySelectorAll('.ai-btn');
-    allChips.forEach(c => c.classList.remove('active-chip'));
-    if(element) element.classList.add('active-chip');
-    askAI(key);
-}
-
-function mutateContextChips(contextKey) {
-    const chipContainer = document.getElementById("aiDynamicActionContainer");
-    const structuralTargets = alternateChips[contextKey] || defaultChips;
+    document.querySelectorAll('.ai-btn').forEach(btn => btn.classList.remove('active-chip'));
+    element.classList.add('active-chip');
     
-    chipContainer.innerHTML = "";
-    structuralTargets.forEach(chip => {
-        const btn = document.createElement("button");
-        btn.className = "ai-btn";
-        if(chip.key === contextKey) btn.classList.add('active-chip');
-        btn.innerHTML = chip.label;
-        btn.onclick = (e) => {
-            if(chip.key === "RESET") {
-                mutateContextChips("RESET");
-                document.getElementById("aiResponse").innerText = "माहिती मिळवण्यासाठी वरीलपैकी कोणत्याही बटणावर क्लिक करा किंवा तुमचा प्रश्न टाईप करा!";
-                document.getElementById("aiStatus").style.display = "none";
-            } else {
-                handleChipClick(btn, chip.key);
-            }
-        };
-        chipContainer.appendChild(btn);
-    });
-}
-
-function askAI(type) {
     let responseBox = document.getElementById("aiResponse");
-    let statusBox = document.getElementById("aiStatus");
-    let userNameField = document.getElementById("name").value.trim();
-    
-    if(typingTimer) clearTimeout(typingTimer);
-    
-    responseBox.style.opacity = "0.4";
-    statusBox.style.display = "block";
-    statusBox.innerText = "⚡ मिश्राजी AI विश्लेषण करत आहे...";
-    
-    setTimeout(() => {
-        responseBox.style.opacity = "1";
-        statusBox.innerText = "✨ AI कडून मिळालेले उत्तर:";
-        
-        let baseText = aiData[type] || aiData['fallback'];
-        if(userNameField && type !== 'fallback') {
-            baseText = `<span style='background: #144d31; color: #1dd1a1; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: bold;'>ग्राहक: ${userNameField}</span><br><br>` + baseText;
-        }
-        
-        responseBox.innerHTML = ""; 
-        let tokens = [];
-        let regex = /(<\/?[^>]+>|[^<]+)/g;
-        let match;
-        while ((match = regex.exec(baseText)) !== null) {
-            tokens.push(match[0]);
-        }
-        
-        let tokenIndex = 0;
-        let charIndex = 0;
-        let currentVisibleNode = responseBox;
-
-        function advancedTypewriterStep() {
-            if (tokenIndex < tokens.length) {
-                let token = tokens[tokenIndex];
-                if (token.startsWith("<")) {
-                    let tempDiv = document.createElement("div");
-                    tempDiv.innerHTML = token;
-                    let tagNode = tempDiv.firstChild;
-                    
-                    if (token.startsWith("</")) {
-                        currentVisibleNode = responseBox; 
-                    } else {
-                        responseBox.appendChild(tagNode);
-                        if (!token.endsWith("/>") && token !== "<br>") {
-                            currentVisibleNode = tagNode; 
-                        }
-                    }
-                    tokenIndex++;
-                    advancedTypewriterStep();
-                } else {
-                    if (charIndex < token.length) {
-                        currentVisibleNode.innerHTML += token.charAt(charIndex) === " " ? "&nbsp;" : token.charAt(charIndex);
-                        charIndex++;
-                        let delay = token.charAt(charIndex-1) === "!" || token.charAt(charIndex-1) === "." ? 180 : 8;
-                        typingTimer = setTimeout(advancedTypewriterStep, delay);
-                    } else {
-                        charIndex = 0;
-                        tokenIndex++;
-                        advancedTypewriterStep();
-                    }
-                }
-            } else {
-                statusBox.innerText = "● AI असिस्टंट ऑनलाईन";
-                mutateContextChips(type);
-            }
-        }
-        advancedTypewriterStep();
-    }, 350);
+    if(aiData[key]) {
+        responseBox.innerHTML = aiData[key];
+    }
 }
 
 function handleCustomQuery() {
-    let inputEl = document.getElementById("aiUserQuery");
-    let query = inputEl.value.toLowerCase().trim();
+    let queryInput = document.getElementById("aiUserQuery");
+    let query = queryInput.value.toLowerCase().trim();
+    let responseBox = document.getElementById("aiResponse");
+    
     if(!query) return;
-
-    document.querySelectorAll('.ai-btn').forEach(c => c.classList.remove('active-chip'));
-
-    if(query.includes("recipe") || query.includes("cook") || query.includes("dish") || query.includes("रेसिपी") || query.includes("कसे बनवायचे") || query.includes("भाजी") || query.includes("पदार्थ") || query.includes("बनवा")) {
-        if (query.includes("soup") || query.includes("सूप")) {
-            askAI("soup");
-        } else if (query.includes("masala") || query.includes("मसाला") || query.includes("ग्रेव्ही")) {
-            askAI("masala");
-        } else {
-            askAI("recipe");
-        }
-    } else if (query.includes("soup") || query.includes("सूप") || query.includes("पिणे")) {
-        askAI("soup");
-    } else if (query.includes("masala") || query.includes("मसाला") || query.includes("ग्रेव्ही")) {
-        askAI("masala");
-    } else if (query.includes("child") || query.includes("kid") || query.includes("baby") || query.includes("लहान मुल") || query.includes("बाळ") || query.includes("मुलांना")) {
-        askAI("kids");
-    } else if (query.includes("business") || query.includes("wholesale") || query.includes("bulk") || query.includes("हॉटेल") || query.includes("घाऊक") || query.includes("व्यापार") || query.includes("शेती") || query.includes("रेट")) {
-        askAI("business");
-    } else if (query.includes("delivery") || query.includes("where") || query.includes("address") || query.includes("पत्ता") || query.includes("डिलिव्हरी") || query.includes("कुठे") || query.includes("गाव")) {
-        askAI("delivery");
-    } else if (query.includes("health") || query.includes("benefit") || query.includes("nutrition") || query.includes("protein") || query.includes("vitamin") || query.includes("फायदे") || query.includes("आरोग्य") || query.includes("गुणकारी") || query.includes("शक्ती")) {
-        askAI("health");
-    } else if (query.includes("store") || query.includes("fridge") || query.includes("days") || query.includes("fresh") || query.includes("साठवणूक") || query.includes("टिकवणे") || query.includes("फ्रिज") || query.includes("खराब")) {
-        askAI("storage");
-    } else if (query.includes("weight") || query.includes("fat") || query.includes("diet") || query.includes("calories") || query.includes("वजन") || query.includes("डाएट") || query.includes("चरबी") || query.includes("बारीक")) {
-        askAI("weight");
-    } else if (query.includes("clean") || query.includes("wash") || query.includes("dirty") || query.includes("स्वच्छ") || query.includes("धुणे") || query.includes("साफ")) {
-        askAI("clean");
-    } else {
-        askAI("fallback");
+    
+    let matched = false;
+    
+    if(query.includes("recipe") || query.includes("रेसिपी") || query.includes("कसे बनवायचे") || query.includes("भाजी")) {
+        responseBox.innerHTML = aiData.recipe;
+        matched = true;
+    } else if(query.includes("health") || query.includes("फायदे") || query.includes("गुणधर्म") || query.includes("आरोग्य")) {
+        responseBox.innerHTML = aiData.health;
+        matched = true;
+    } else if(query.includes("storage") || query.includes("साठवणूक") || query.includes("टिकवणे") || query.includes("खराब")) {
+        responseBox.innerHTML = aiData.storage;
+        matched = true;
+    } else if(query.includes("weight") || query.includes("वजन") || query.includes("फॅट") || query.includes("कॅलरी")) {
+        responseBox.innerHTML = aiData.weight;
+        matched = true;
+    } else if(query.includes("clean") || query.includes("स्वच्छ") || query.includes("धुणे") || query.includes("धुवायचे")) {
+        responseBox.innerHTML = aiData.clean;
+        matched = true;
+    } else if(query.includes("soup") || query.includes("सूप")) {
+        responseBox.innerHTML = aiData.soup;
+        matched = true;
+    } else if(query.includes("masala") || query.includes("मसाला")) {
+        responseBox.innerHTML = aiData.masala;
+        matched = true;
+    } else if(query.includes("kids") || query.includes("लहान मुल") || query.includes("बाळ")) {
+        responseBox.innerHTML = aiData.kids;
+        matched = true;
+    } else if(query.includes("business") || query.includes("शेती") || query.includes("हॉटेल") || query.includes("घाऊक") || query.includes("bulk")) {
+        responseBox.innerHTML = aiData.business;
+        matched = true;
+    } else if(query.includes("delivery") || query.includes("डिलिव्हरी") || query.includes("पत्ता") || query.includes("कुठे")) {
+        responseBox.innerHTML = aiData.delivery;
+        matched = true;
     }
     
-    inputEl.value = "";
+    if(!matched) {
+        responseBox.innerHTML = `🤖 <strong>क्षमस्व!</strong> तुमच्या प्रश्नासाठी थेट उत्तर सापडले नाही. कृपया वरीलपैकी एका बटणावर क्लिक करा किंवा 'रेसिपी', 'फायदे', 'डिलिव्हरी', 'साठवणूक' यांसारखे शब्द वापरून पुन्हा प्रयत्न करा.`;
+    }
+    
+    queryInput.value = "";
 }
 
-const observer = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
-        if(entry.isIntersecting){
-            entry.target.classList.add("visible");
+        if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
         }
     });
-}, { threshold: 0.05 });
+}, { threshold: 0.1 });
 
-document.querySelectorAll(".reveal-element").forEach(el => {
-    observer.observe(el);
-});
+document.querySelectorAll('.reveal-element').forEach(el => observer.observe(el));
 </script>
 
 </body>
