@@ -1,300 +1,494 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mishraji Fresh Oyster Mushrooms</title>
+<title>Mishraji Fresh Oyster Mushrooms | Premium Suite</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 <style>
 :root {
-    --primary: #1b4332;
-    --primary-light: #2d6a4f;
-    --accent: #40916c;
-    --light-bg: #f4f9f4;
-    --card-bg: #ffffff;
-    --text-dark: #2b2d2b;
-    --text-muted: #52635a;
-    --ai-glow: #74c69d;
-    --ai-purple: #4ee2a9;
+    --bg-dark: #030a06;
+    --glass-light: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.45);
+    --primary-neon: #1dd1a1;
+    --emerald-deep: #0b2f1d;
+    --emerald-mid: #144d31;
+    --text-dark: #0f1813;
+    --text-light: #e3f2eb;
+    --panel-glow: rgba(29, 209, 161, 0.2);
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    transition:0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 }
 
-html{
-    scroll-behavior:smooth;
+html {
+    scroll-behavior: smooth;
 }
 
-body{
-    font-family:'Segoe UI',sans-serif;
-    background:#f9fbf9;
-    color:#2b2d2b;
-    overflow-x:hidden;
+body {
+    background-color: #f0f6f3;
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(29, 209, 161, 0.12) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(20, 77, 49, 0.08) 0px, transparent 50%);
+    color: var(--text-dark);
+    overflow-x: hidden;
     line-height: 1.6;
 }
 
-/* NAVBAR */
-.navbar{
-    background: rgba(27, 67, 50, 0.95);
-    backdrop-filter: blur(10px);
-    color:white;
-    text-align:center;
-    padding:20px;
-    font-size:24px;
-    font-weight:700;
-    position:sticky;
-    top:0;
-    z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+/* INTERSECTION SMOOTH ESCALATION SHIELD */
+.reveal-element {
+    opacity: 0;
+    transform: translateY(40px) scale(0.97);
+    transition: all 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* HERO & BACKGROUND */
-.hero{
-    text-align:center;
-    padding:80px 20px 60px 20px;
-    background: radial-gradient(circle at top right, #e8f5e9, #d8f3dc, #f9fbf9);
+.reveal-element.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* NAVBAR HEADER GLOW SECTION */
+.navbar {
+    background: rgba(11, 47, 29, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    color: var(--text-light);
+    text-align: center;
+    padding: 22px;
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(29, 209, 161, 0.25);
+    box-shadow: 0 10px 40px rgba(4, 13, 8, 0.2);
+}
+
+/* HERO LAYER DECORATIONS */
+.hero {
+    text-align: center;
+    padding: 80px 20px;
     position: relative;
 }
 
-.hero h1{
-    font-size:46px;
-    color:#1b4332;
+.hero h1 {
+    font-size: 56px;
+    font-weight: 900;
+    color: var(--emerald-deep);
+    letter-spacing: -1.5px;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, #0b2f1d, #144d31, #248a58);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p.tagline {
+    font-size: 15px;
     font-weight: 800;
-    margin-bottom: 5px;
-    letter-spacing: -0.5px;
-    animation: slideDown 1s ease;
-}
-
-.hero p{
-    font-size:18px;
-    color:#40916c;
-    font-weight:600;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    color: #1a6b43;
+    background: rgba(29, 209, 161, 0.15);
     display: inline-block;
-    background: rgba(255,255,255,0.7);
-    padding: 6px 22px;
-    border-radius: 50px;
-    margin-bottom: 25px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+    padding: 8px 24px;
+    border-radius: 30px;
+    margin-bottom: 45px;
 }
 
-.hero img{
-    width:400px;
-    max-width:90%;
-    border-radius:24px;
-    margin:0 auto 35px auto;
+/* FLOATING MUSHROOM GRAPHIC CORE */
+.img-frame {
+    position: relative;
+    width: 380px;
+    max-width: 90%;
+    margin: 0 auto 50px auto;
+}
+
+.img-frame::before {
+    content: '';
+    position: absolute;
+    top: 15px; left: -15px; right: 15px; bottom: -15px;
+    border: 3px dashed var(--primary-neon);
+    border-radius: 40px;
+    z-index: -1;
+    opacity: 0.4;
+    animation: rotationOrbit 25s linear infinite;
+}
+
+.hero img {
+    width: 100%;
+    height: auto;
+    border-radius: 38px;
     display: block;
-    box-shadow: 0 20px 40px rgba(27, 67, 50, 0.15);
-    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 35px 70px rgba(11, 47, 29, 0.25);
+    border: 8px solid white;
+    background-color: var(--emerald-deep);
+    animation: floatingOrb 6s ease-in-out infinite;
 }
 
-/* INTERACTIVE ORDER CONTAINER */
+/* ULTRA-GLASS ORDER BLOCK MATRIX */
 .order-container {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(15px);
+    background: var(--glass-light);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     max-width: 500px;
     margin: 0 auto;
-    padding: 35px 30px;
-    border-radius: 24px;
-    box-shadow: 0 20px 50px rgba(0,0,0,0.05);
-    border: 1px solid rgba(255,255,255,0.8);
+    padding: 45px 40px;
+    border-radius: 36px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 
+        0 40px 80px rgba(11, 47, 29, 0.1),
+        inset 0 1px 1px rgba(255,255,255,0.8);
+    position: relative;
+}
+
+.order-container::after {
+    content: '';
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(135deg, rgba(29,209,161,0.4), transparent, rgba(20,77,49,0.2));
+    border-radius: 36px;
+    z-index: -1;
 }
 
 .form-field {
     position: relative;
-    margin-bottom: 20px;
-    text-align: left;
+    margin-bottom: 26px;
 }
 
 .form-field i {
     position: absolute;
-    left: 16px;
+    left: 20px;
     top: 50%;
     transform: translateY(-50%);
-    color: var(--accent);
-    font-size: 16px;
-    z-index: 2;
+    color: var(--emerald-mid);
+    font-size: 19px;
+    z-index: 5;
+    transition: transform 0.3s;
 }
 
-/* INPUTS & SELECTS */
-input, select{
-    padding:16px 16px 16px 48px;
-    width:100%;
-    border-radius:14px;
-    border:2px solid #e2e8f0;
-    font-size:16px;
-    margin-top:0;
-    background: white;
+input, select {
+    padding: 20px 20px 20px 56px;
+    width: 100%;
+    border-radius: 18px;
+    border: 1px solid rgba(20, 77, 49, 0.2);
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.85);
+    color: var(--text-dark);
     outline: none;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+input:focus, select:focus {
+    border-color: var(--primary-neon);
+    background: #ffffff;
+    box-shadow: 0 0 0 6px rgba(29, 209, 161, 0.18);
+    transform: translateY(-1px);
+}
+
+.form-field input:focus + i {
+    transform: translateY(-50%) scale(1.15);
+    color: #1a6b43;
+}
+
+/* PACK MULTIPLIER COUNTER UI */
+.quantity-counter-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 28px;
+    background: rgba(255,255,255,0.5);
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.6);
+}
+
+.qty-stepper {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border: 1px solid rgba(20, 77, 49, 0.18);
+    border-radius: 14px;
+    overflow: hidden;
+    width: 140px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.qty-stepper button {
+    background: transparent;
+    border: none;
+    width: 45px;
+    height: 50px;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--emerald-deep);
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.qty-stepper button:hover {
+    background: rgba(29, 209, 161, 0.15);
+}
+
+.qty-stepper span {
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 800;
     color: var(--text-dark);
 }
 
-input:focus, select:focus{
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 4px rgba(45, 106, 79, 0.15);
-    background: #ffffff;
+.price-display-box {
+    flex: 1;
+    text-align: right;
+    font-size: 22px;
+    font-weight: 900;
+    color: #135233;
+    text-shadow: 0 1px 0px rgba(255,255,255,0.8);
 }
 
-/* WHATSAPP ACTION BUTTON */
-.btn{
-    background: linear-gradient(135deg, var(--primary-light), var(--primary));
-    color:white;
-    padding:16px 36px;
-    border:none;
-    border-radius:50px;
-    font-size:18px;
-    font-weight: 600;
-    cursor:pointer;
-    margin-top:10px;
+/* HYPER NEON ACTION BUTTONS */
+.btn {
+    background: linear-gradient(135deg, #144d31, #0b2f1d);
+    color: white;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 50px;
+    font-size: 19px;
+    font-weight: 700;
+    cursor: pointer;
     width: 100%;
-    box-shadow: 0 8px 25px rgba(45, 106, 79, 0.3);
+    box-shadow: 0 12px 35px rgba(11, 47, 29, 0.3);
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
+    gap: 14px;
+    letter-spacing: 0.5px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.btn:hover{
-    background:#1b4332;
-    transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(45, 106, 79, 0.4);
+.btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 
+        0 20px 40px rgba(11, 47, 29, 0.4),
+        0 0 25px rgba(29, 209, 161, 0.35);
+    background: linear-gradient(135deg, #1a5e3d, #0f3d26);
 }
 
-.btn:active{
-    transform:scale(0.98) translateY(-1px);
+.btn i {
+    font-size: 22px;
+    animation: spinPulse 3s linear infinite;
 }
 
-/* SECTION STRUCTURES */
-.section{
-    padding:90px 20px;
-    max-width:1200px;
-    margin:auto;
-    text-align:center;
+/* LAYOUT TITLES DEFINITIONS */
+.section {
+    padding: 110px 20px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
 }
 
 .section h2 {
-    font-size: 36px;
-    color: var(--primary);
-    margin-bottom: 45px;
+    font-size: 42px;
+    font-weight: 850;
+    color: var(--emerald-deep);
+    margin-bottom: 65px;
+    letter-spacing: -0.8px;
     position: relative;
     display: inline-block;
-    font-weight: 800;
 }
 
 .section h2::after {
     content: '';
-    width: 60px;
-    height: 4px;
-    background: var(--accent);
     position: absolute;
-    bottom: -12px;
+    bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
+    width: 70px;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, var(--primary-neon), transparent);
     border-radius: 10px;
 }
 
-/* LAYOUT GRIDS */
-.grid-container{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-    gap:30px;
+/* LUXURY GLASS PRODUCTS / BENEFITS GRID */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
 }
 
-.card{
-    background:white;
-    padding:40px 30px;
-    border-radius:20px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.02);
-    border: 1px solid #edf2f7;
+.card {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px 35px;
+    border-radius: 32px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.02);
     position: relative;
     overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.card.product-card {
+    cursor: pointer;
 }
 
 .card::before {
     content: '';
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 5px;
-    background: linear-gradient(90deg, var(--accent), var(--primary-light));
-    transform: scaleX(0);
-    transition: transform 0.4s ease;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, rgba(29,209,161,0.08), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
 }
 
 .card:hover::before {
-    transform: scaleX(1);
+    opacity: 1;
 }
 
-.card:hover{
-    transform:translateY(-10px);
-    box-shadow:0 20px 40px rgba(27, 67, 50, 0.08);
+.card:hover {
+    transform: translateY(-15px) scale(1.02);
+    background: #ffffff;
+    box-shadow: 0 30px 60px rgba(11, 47, 29, 0.12);
+    border-color: rgba(29, 209, 161, 0.4);
 }
 
 .card h3 {
-    font-size: 24px;
-    color: var(--text-dark);
-    margin-bottom: 10px;
-}
-
-.price{
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 800;
-    color: var(--primary-light);
-    margin-top: 12px;
+    color: var(--text-dark);
+    margin-bottom: 12px;
 }
 
-/* FEATURE IMAGES */
-.feature-card img{
-    width:90px;
-    height:90px;
-    object-fit:contain;
-    margin-bottom:20px;
+.price {
+    font-size: 36px;
+    font-weight: 900;
+    color: #135233;
+    margin: 18px 0;
+    display: inline-block;
+}
+
+.click-hint {
+    font-size: 14px;
+    color: #16643e;
+    font-weight: 800;
+    background: rgba(29, 209, 161, 0.15);
+    display: inline-block;
+    padding: 8px 20px;
+    border-radius: 30px;
+    transition: background 0.3s;
+}
+
+.card:hover .click-hint {
+    background: var(--primary-neon);
+    color: var(--bg-dark);
+}
+
+/* LOGISTIC FEATURE LAYOUT INTERACTIVE EXPANSION */
+.feature-card {
+    cursor: pointer;
+}
+
+.feature-card img {
+    width: 95px;
+    height: 95px;
+    object-fit: contain;
+    margin-bottom: 28px;
+    filter: drop-shadow(0 12px 20px rgba(0,0,0,0.06));
+    transition: transform 0.4s;
+}
+
+.feature-card:hover img {
+    transform: scale(1.12) rotate(3deg);
 }
 
 .feature-card p {
-    font-weight: 700;
-    font-size: 19px;
-    color: var(--primary);
+    font-weight: 800;
+    font-size: 22px;
+    color: var(--emerald-deep);
 }
 
-/* CYBER-ORGANIC AI DISPLAY BLOCK */
+.card-hint-text {
+    font-size: 13px;
+    color: #248a58;
+    margin-top: 10px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.feature-info-pane {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    text-align: left;
+    background: rgba(20, 77, 49, 0.05);
+    border-radius: 18px;
+    margin-top: 0;
+}
+
+.feature-card.expanded .feature-info-pane {
+    max-height: 300px;
+    opacity: 1;
+    transform: translateY(0);
+    margin-top: 25px;
+    padding: 20px;
+    border-left: 4px solid var(--primary-neon);
+}
+
+.feature-info-pane ul {
+    list-style: none;
+}
+
+.feature-info-pane li {
+    font-size: 15px;
+    color: #1a3c2b;
+    margin-bottom: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.feature-info-pane li:last-child {
+    margin-bottom: 0;
+}
+
+.feature-info-pane li i {
+    color: var(--primary-neon);
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+/* ADVANCED CYBERNETIC BOT SUITE ARCHITECTURE */
 .ai-section {
-    background: linear-gradient(135deg, #0b251a 0%, #04120b 100%);
-    color: white;
-    border-radius: 28px;
-    padding: 60px 40px;
-    margin: 20px auto;
-    max-width: 900px;
-    box-shadow: 0 25px 60px rgba(4, 18, 11, 0.35);
+    background: radial-gradient(circle at top right, #092819, #030a06);
+    color: var(--text-light);
+    border-radius: 40px;
+    padding: 80px 50px;
+    margin: 30px auto;
+    max-width: 980px;
+    box-shadow: 0 45px 90px rgba(3, 10, 6, 0.65);
     position: relative;
     overflow: hidden;
-    border: 1px solid rgba(116, 198, 157, 0.15);
-}
-
-/* Digital Grid Array Overlay Background */
-.ai-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-image: 
-        linear-gradient(rgba(116, 198, 157, 0.04) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(116, 198, 157, 0.04) 1px, transparent 1px);
-    background-size: 25px 25px;
-    pointer-events: none;
+    border: 1px solid rgba(29, 209, 161, 0.3);
 }
 
 .ai-glow-spot {
     position: absolute;
-    width: 250px;
-    height: 250px;
-    background: radial-gradient(circle, rgba(78, 226, 169, 0.12) 0%, transparent 70%);
-    top: -50px;
-    right: -50px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(29, 209, 161, 0.2) 0%, transparent 70%);
+    top: -120px;
+    right: -120px;
     pointer-events: none;
 }
 
@@ -302,225 +496,229 @@ input:focus, select:focus{
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 2;
+    gap: 18px;
+    margin-bottom: 25px;
 }
 
 .ai-header h2 {
-    color: white;
-    margin: 0;
-    font-size: 32px;
+    color: white !important;
+    margin-bottom: 0;
+    font-size: 38px;
+    letter-spacing: 0px;
 }
+
 .ai-header h2::after { display: none; }
 
 .ai-header i {
-    font-size: 28px;
-    color: var(--ai-purple);
-    text-shadow: 0 0 15px rgba(78, 226, 169, 0.6);
-    animation: pulseGlow 2s infinite ease-in-out;
+    font-size: 36px;
+    color: var(--primary-neon);
+    text-shadow: 0 0 25px rgba(29, 209, 161, 0.8);
+    animation: highPulse 2.5s infinite ease-in-out;
 }
 
-.ai-section p.ai-subtitle {
-    position: relative;
-    z-index: 2;
-    color: #a3b8ae;
-    font-size: 16px;
-    max-width: 600px;
-    margin: 0 auto 35px auto;
+.ai-subtitle {
+    color: #a5c7b7;
+    font-size: 17px;
+    max-width: 660px;
+    margin: 0 auto 50px auto;
+    font-weight: 500;
 }
 
+/* CHIPS HUB INTERACTIVE ELEMENTS */
 .ai-buttons {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 15px;
     flex-wrap: wrap;
-    margin-bottom: 30px;
-    position: relative;
-    z-index: 2;
+    margin-bottom: 45px;
 }
 
 .ai-btn {
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(116, 198, 157, 0.25);
-    color: #e8f5e9;
-    padding: 12px 24px;
+    background: rgba(29, 209, 161, 0.08);
+    border: 1px solid rgba(29, 209, 161, 0.3);
+    color: #d6f0df;
+    padding: 15px 28px;
     border-radius: 50px;
     cursor: pointer;
-    font-weight: 600;
+    font-weight: 700;
     font-size: 15px;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .ai-btn:hover {
-    background: linear-gradient(135deg, var(--ai-purple), #2d6a4f);
-    color: #04120b;
+    background: var(--primary-neon);
+    color: var(--bg-dark);
     border-color: transparent;
-    box-shadow: 0 8px 20px rgba(78, 226, 169, 0.3);
-    transform: translateY(-2px);
+    box-shadow: 0 0 25px rgba(29, 209, 161, 0.45);
+    transform: translateY(-3px);
 }
 
-/* Chat Input Bar UI */
+/* ACTIVE FILTER CHIP GLOW CLASS */
+.ai-btn.active-chip {
+    background: var(--primary-neon);
+    color: var(--bg-dark);
+    font-weight: 800;
+    box-shadow: 0 0 25px rgba(29, 209, 161, 0.6);
+    border-color: transparent;
+}
+
+/* TERMINAL USER INPUT LAYOUT FIELD */
 .ai-custom-input {
     display: flex;
-    max-width: 600px;
-    margin: 0 auto 30px auto;
-    gap: 10px;
-    position: relative;
-    z-index: 2;
+    max-width: 680px;
+    margin: 0 auto 40px auto;
+    gap: 14px;
 }
 
 .ai-custom-input input {
-    padding: 16px 24px;
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(116, 198, 157, 0.2);
+    padding: 20px 28px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(29, 209, 161, 0.25);
     color: white;
-    border-radius: 30px;
+    border-radius: 50px;
 }
 
 .ai-custom-input input:focus {
     background: rgba(255, 255, 255, 0.12);
-    border-color: var(--ai-purple);
-    color: white;
-    box-shadow: 0 0 15px rgba(78, 226, 169, 0.1);
+    border-color: var(--primary-neon);
+    box-shadow: 0 0 25px rgba(29, 209, 161, 0.25);
 }
 
 .ai-custom-input button {
-    background: var(--ai-purple);
+    background: var(--primary-neon);
     border: none;
-    width: 54px;
-    height: 54px;
+    width: 62px;
+    height: 62px;
     border-radius: 50%;
-    color: #04120b;
+    color: var(--bg-dark);
     cursor: pointer;
-    font-size: 18px;
+    font-size: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 15px rgba(78, 226, 169, 0.3);
+    box-shadow: 0 6px 25px rgba(29, 209, 161, 0.35);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .ai-custom-input button:hover {
-    transform: scale(1.05);
+    transform: scale(1.1) rotate(15deg);
     background: white;
 }
 
-/* Chat Output Windows */
+/* OUTPUT CORE SHELL ARCHITECTURE */
 .ai-response-wrapper {
-    position: relative;
-    z-index: 2;
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: 16px;
-    padding: 3px;
-    background: linear-gradient(135deg, rgba(116,198,157,0.2), transparent);
-    width: 100%;
-    max-width: 800px;
+    background: linear-gradient(135deg, rgba(29, 209, 161, 0.2), transparent);
+    border-radius: 24px;
+    padding: 2px;
+    max-width: 820px;
     margin: 0 auto;
 }
 
 .ai-status {
-    font-size: 13px;
-    color: var(--ai-purple);
+    font-size: 14px;
+    color: var(--primary-neon);
     text-align: left;
-    padding: 12px 20px 0 20px;
+    padding: 18px 28px 0 28px;
     font-family: monospace;
-    font-weight: bold;
     display: none;
-    background: #06180f;
-    border-top-left-radius: 14px;
-    border-top-right-radius: 14px;
+    background: #04120a;
+    border-top-left-radius: 22px;
+    border-top-right-radius: 22px;
 }
 
 .ai-response {
-    background: #06180f;
-    padding: 25px;
-    border-radius: 14px;
-    min-height: 90px;
-    color: #d1e7dd;
-    font-size: 16px;
-    border-left: 4px solid var(--ai-purple);
-    
-    /* ABSOLUTE WRAPPING ASSURANCE RULES */
-    display: block !important; 
-    white-space: normal !important; 
+    background: #04120a;
+    padding: 35px;
+    border-radius: 22px;
+    min-height: 110px;
+    color: #d1ebd9;
+    font-size: 18px;
+    border-left: 6px solid var(--primary-neon);
+    text-align: left;
+    display: block !important;
+    white-space: normal !important;
     word-wrap: break-word !important;
-    word-break: break-word !important;
-    text-align: left !important;
-    overflow-wrap: break-word !important;
 }
 
-/* SCHEDULING CONTACT WRAPPER */
-.contact-box{
-    background: white;
-    padding: 40px;
-    border-radius: 24px;
-    max-width: 550px;
+/* CONTACT PLATFORM CONSOLE */
+.contact-box {
+    background: var(--glass-light);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 36px;
+    max-width: 580px;
     margin: auto;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.02);
-    border: 1px solid #edf2f7;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 25px 55px rgba(11, 47, 29, 0.05);
 }
 
 .contact-box p {
-    font-size: 18px;
-    margin-bottom: 16px;
+    font-size: 20px;
+    margin-bottom: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 12px;
+    gap: 16px;
+    font-weight: 700;
 }
 
 .contact-box p:last-child { margin-bottom: 0; }
 
-/* FLOATING CORE FOOTPRINT NAVIGATION ACTION */
-.floating-btn{
-    position:fixed;
-    bottom:30px;
-    right:30px;
-    background: var(--primary-light);
-    color:white;
-    border:none;
-    padding: 16px 26px;
-    border-radius:50px;
-    cursor:pointer;
-    font-weight: 700;
-    box-shadow: 0 10px 30px rgba(45, 106, 79, 0.4);
+/* TELEPORT FLOATING INTERACTION TRIGGER BUTTON */
+.floating-btn {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    background: linear-gradient(135deg, #1dd1a1, #144d31);
+    color: white;
+    border: none;
+    padding: 20px 32px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 800;
+    box-shadow: 0 18px 40px rgba(29, 209, 161, 0.4);
     z-index: 999;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 16px;
+    gap: 12px;
+    font-size: 17px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .floating-btn:hover {
-    background: var(--primary);
-    transform: scale(1.06) translateY(-2px);
+    transform: scale(1.06) translateY(-4px);
+    box-shadow: 0 25px 50px rgba(29, 209, 161, 0.5);
 }
 
-/* FOOTER */
-footer{
-    background:#1b4332;
-    color:#b7e4c7;
-    text-align:center;
-    padding:30px;
-    margin-top:80px;
-    font-weight: 500;
+/* FOOTER ARCH */
+footer {
+    background: #0b2f1d;
+    color: #a5c7b7;
+    text-align: center;
+    padding: 40px;
+    margin-top: 110px;
+    font-weight: 700;
+    border-top: 1px solid rgba(29, 209, 161, 0.2);
     letter-spacing: 0.5px;
 }
 
-/* TOAST OVERLAYS */
-#toast{
-    position:fixed;
-    bottom:40px;
-    left:50%;
-    transform:translateX(-50%) translateY(100px);
-    background:#1e293b;
-    color:white;
-    padding:16px 28px;
-    border-radius:30px;
-    font-weight: 600;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+/* TOAST PANELS MANAGEMENT SYSTEM */
+#toast {
+    position: fixed;
+    bottom: 45px;
+    left: 50%;
+    transform: translateX(-50%) translateY(130px);
+    background: #0f1813;
+    color: white;
+    padding: 20px 36px;
+    border-radius: 50px;
+    font-weight: 800;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.35);
     z-index: 2000;
     opacity: 0;
+    border: 1px solid rgba(255,255,255,0.12);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 #toast.show {
@@ -528,33 +726,39 @@ footer{
     opacity: 1;
 }
 
-/* KEYFRAMES LIBRARY */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0px); }
+/* KEYFRAMES RE-IMAGINED */
+@keyframes floatingOrb {
+    0% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(0.8deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
 }
 
-@keyframes slideDown {
-    from{opacity:0; transform:translateY(-40px);}
-    to{opacity:1; transform:translateY(0);}
+@keyframes rotationOrbit {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-@keyframes pulseGlow {
-    0% { text-shadow: 0 0 10px rgba(78, 226, 169, 0.4); transform: scale(1); }
-    50% { text-shadow: 0 0 25px rgba(78, 226, 169, 0.8); transform: scale(1.1); }
-    100% { text-shadow: 0 0 10px rgba(78, 226, 169, 0.4); transform: scale(1); }
+@keyframes spinPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
 }
 
-/* BREAKPOINT SCHEMATICS */
-@media(max-width:768px){
-    .hero h1{font-size:34px;}
-    .hero img{width:100%;}
-    .order-container { padding: 25px 20px; }
-    .ai-section { padding: 40px 20px; }
-    .ai-header h2 { font-size: 24px; }
-    .ai-custom-input { flex-direction: row; gap: 8px; }
-    .section { padding: 60px 20px; }
+@keyframes highPulse {
+    0% { text-shadow: 0 0 12px rgba(29, 209, 161, 0.4); transform: scale(1); }
+    50% { text-shadow: 0 0 28px rgba(29, 209, 161, 0.85); transform: scale(1.1); }
+    100% { text-shadow: 0 0 12px rgba(29, 209, 161, 0.4); transform: scale(1); }
+}
+
+/* RESPONSIVE SCALING VIEWPORTS */
+@media(max-width: 768px) {
+    .hero h1 { font-size: 40px; }
+    .img-frame { width: 100%; }
+    .order-container { padding: 35px 25px; }
+    .ai-section { padding: 50px 25px; }
+    .ai-header h2 { font-size: 28px; }
+    .section { padding: 80px 15px; }
+    .quantity-counter-wrapper { flex-direction: column; align-items: stretch; gap: 12px; }
+    .price-display-box { text-align: center; margin-top: 5px; }
 }
 </style>
 </head>
@@ -565,208 +769,434 @@ footer{
     Mishraji Fresh Oyster Mushrooms
 </div>
 
-<div class="hero">
+<div class="hero section reveal-element">
     <h1>Farm Fresh Oyster Mushrooms</h1>
+    <p class="tagline">Healthy • Organic • Fresh Daily</p>
 
-    <img src="static/images/mushroom.jpg" loading="lazy">
+    <div class="img-frame">
+        <img src="static/images/mushroom.jpg" loading="lazy" alt="Mishraji Premium Mushrooms">
+    </div>
 
-    <p>Healthy • Organic • Fresh Daily</p>
-
-    <div class="order-container">
+    <div class="order-container reveal-element" id="orderForm">
         <div class="form-field">
             <i class="fa-solid fa-user"></i>
-            <input id="name" placeholder="Your Name">
+            <input id="name" placeholder="तुमचे नाव (Your Name)">
         </div>
         <div class="form-field">
             <i class="fa-solid fa-phone"></i>
-            <input id="phone" placeholder="Phone Number">
+            <input id="phone" type="tel" placeholder="फोन नंबर (10-Digit Phone Number)">
         </div>
         <div class="form-field">
             <i class="fa-solid fa-location-dot"></i>
-            <input id="location" placeholder="Delivery Location">
+            <input id="location" placeholder="डिलिव्हरी पत्ता (Delivery Location)">
         </div>
         <div class="form-field">
             <i class="fa-solid fa-layer-group"></i>
-            <select id="qty">
-                <option value="150gm - ₹60">150gm - ₹60</option>
-                <option value="300gm - ₹120">300gm - ₹120</option>
-                <option value="500gm - ₹200">500gm - ₹200</option>
+            <select id="qty" onchange="calculateTotalPrice()">
+                <option value="150gm" data-price="60">150gm - ₹60</option>
+                <option value="300gm" data-price="100">300gm - ₹100</option>
+                <option value="500gm" data-price="160">500gm - ₹160</option>
             </select>
         </div>
+
+        <div class="quantity-counter-wrapper">
+            <div class="qty-stepper">
+                <button type="button" onclick="adjustCount(-1)">-</button>
+                <span id="packCountDisplay">1</span>
+                <button type="button" onclick="adjustCount(1)">+</button>
+            </div>
+            <div class="price-display-box" id="totalPriceBox">
+                एकूण किंमत: ₹60
+            </div>
+        </div>
+
         <button class="btn" onclick="sendOrder()">
             <i class="fa-brands fa-whatsapp"></i> Order on WhatsApp
         </button>
     </div>
 </div>
 
-<div class="section">
+<div class="section reveal-element">
     <div class="ai-section">
         <div class="ai-glow-spot"></div>
         <div class="ai-header">
             <i class="fa-solid fa-microchip"></i>
-            <h2>Mishraji Mushroom AI Assistant</h2>
+            <h2>मिश्राजी मशरूम AI असिस्टंट 2.0</h2>
         </div>
-        <p class="ai-subtitle">Ask anything or select an automated prompt below to generate culinary, logistical, and scientific insights instantly.</p>
+        <p class="ai-subtitle">मशरूम रेसिपी, वजन कमी करणे, लहान मुलांसाठी आहार किंवा व्यावसायिक शेती व डिलिव्हरी बद्दल कोणताही प्रश्न विचारा!</p>
         
-        <div class="ai-buttons">
-            <button class="ai-btn" onclick="askAI('recipe')">Quick Recipe Guide 🍲</button>
-            <button class="ai-btn" onclick="askAI('health')">Nutritional Values 🧬</button>
-            <button class="ai-btn" onclick="askAI('storage')">Optimal Storage ❄️</button>
-            <button class="ai-btn" onclick="askAI('weight')">Weight Loss? 📉</button>
-            <button class="ai-btn" onclick="askAI('clean')">How to Clean? 🧼</button>
+        <div class="ai-buttons" id="aiDynamicActionContainer">
+            <button class="ai-btn" onclick="handleChipClick(this, 'recipe')">झटपट रेसिपी गाईड 🍲</button>
+            <button class="ai-btn" onclick="handleChipClick(this, 'health')">पौष्टिक मूल्ये 🧬</button>
+            <button class="ai-btn" onclick="handleChipClick(this, 'storage')">योग्य साठवणूक ❄️</button>
+            <button class="ai-btn" onclick="handleChipClick(this, 'weight')">वजन कमी करण्यासाठी? 📉</button>
+            <button class="ai-btn" onclick="handleChipClick(this, 'clean')">कসে स्वच्छ करावे? 🧼</button>
         </div>
 
         <div class="ai-custom-input">
-            <input id="aiUserQuery" placeholder="Type custom questions (e.g., cooking, freshness, features)..." onkeypress="if(event.key === 'Enter') handleCustomQuery()">
+            <input id="aiUserQuery" placeholder="तुमचा प्रश्न टाईप करा (उदा: लहान मुलांसाठी फायदे, शेती, डिलिव्हरी कुठे आहे?)..." onkeypress="if(event.key === 'Enter') handleCustomQuery()">
             <button onclick="handleCustomQuery()"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
 
         <div class="ai-response-wrapper">
             <div id="aiStatus" class="ai-status"></div>
-            <div class="ai-response" id="aiResponse">Click an automated tracking chip prompt or submit a question above!</div>
+            <div class="ai-response" id="aiResponse">माहिती मिळवण्यासाठी वरीलपैकी कोणत्याही बटणावर क्लिक करा किंवा खाली थेट तुमचा प्रश्न मराठी किंवा English मध्ये टाईप करा!</div>
         </div>
     </div>
 </div>
 
-<div class="section">
+<div class="section reveal-element">
     <h2>Our Products</h2>
 
     <div class="grid-container">
-        <div class="card">
+        <div class="card product-card reveal-element" onclick="selectProduct('150gm')">
             <h3>150gm Pack</h3>
             <p class="price">₹60</p>
+            <p class="click-hint"><i class="fa-solid fa-basket-shopping"></i> ऑर्डर करण्यासाठी क्लिक करा</p>
         </div>
 
-        <div class="card">
+        <div class="card product-card reveal-element" onclick="selectProduct('300gm')">
             <h3>300gm Pack</h3>
-            <p class="price">₹120</p>
+            <p class="price">₹100</p>
+            <p class="click-hint"><i class="fa-solid fa-basket-shopping"></i> ऑर्डर करण्यासाठी क्लिक करा</p>
         </div>
 
-        <div class="card">
+        <div class="card product-card reveal-element" onclick="selectProduct('500gm')">
             <h3>500gm Pack</h3>
-            <p class="price">₹200</p>
+            <p class="price">₹160</p>
+            <p class="click-hint"><i class="fa-solid fa-basket-shopping"></i> ऑर्डर करण्यासाठी क्लिक करा</p>
         </div>
     </div>
 </div>
 
-<div class="section">
+<div class="section reveal-element">
     <h2>Why Choose Us</h2>
 
     <div class="grid-container">
-        <div class="card feature-card">
-            <img src="static/images/logo.jpg">
+        <div class="card feature-card reveal-element" onclick="toggleFeatureCard(this)">
+            <img src="static/images/logo.jpg" alt="Trusted Brand">
             <p>Trusted Brand</p>
+            <div class="card-hint-text">अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i></div>
+            
+            <div class="feature-info-pane">
+                <ul>
+                    <li><i class="fa-solid fa-check"></i> मिश्राजी ब्रँड स्थानिक पातळीवर शेकडो समाधानी ग्राहकांद्वारे विश्वसनीय आहे.</li>
+                    <li><i class="fa-solid fa-check"></i> आम्ही गुणवत्तेच्या सर्व आंतरराष्ट्रीय मानकांचे तंतोतंत पालन करतो.</li>
+                    <li><i class="fa-solid fa-check"></i> पारदर्शक व्यवहार आणि वेळेवर सुरक्षित डिलिव्हरी ही आमची ओळख आहे.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="card feature-card">
-            <img src="static/images/organic.jpg">
+        <div class="card feature-card reveal-element" onclick="toggleFeatureCard(this)">
+            <img src="static/images/organic.jpg" alt="100% Organic">
             <p>100% Organic</p>
+            <div class="card-hint-text">अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i></div>
+            
+            <div class="feature-info-pane">
+                <ul>
+                    <li><i class="fa-solid fa-leaf"></i> कोणत्याही रासायनिक खतांचा किंवा कीटकनाशकांचा वापर केला जात नाही.</li>
+                    <li><i class="fa-solid fa-leaf"></i> शुद्ध आणि नैसर्गिक वातावरणात मशरूमची नैसर्गिक रित्या पैदास केली जाते.</li>
+                    <li><i class="fa-solid fa-leaf"></i> निसर्गाचा समतोल राखून तयार केलेले आरोग्यासाठी १००% सुरक्षित अन्न.</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="card feature-card">
-            <img src="static/images/farm.jpg">
+        <div class="card feature-card reveal-element" onclick="toggleFeatureCard(this)">
+            <img src="static/images/farm.jpg" alt="Farm Fresh">
             <p>Farm Fresh</p>
+            <div class="card-hint-text">अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i></div>
+            
+            <div class="feature-info-pane">
+                <ul>
+                    <li><i class="fa-solid fa-seedling"></i> थेट आमच्या कारंजा (दत्त) येथील आधुनिक फार्ममधून तुमच्या घरापर्यंत.</li>
+                    <li><i class="fa-solid fa-seedling"></i> रोज सकाळी ताज्या काढलेल्या मशरूमची त्याच दिवशी डिलिव्हरी केली जाते.</li>
+                    <li><i class="fa-solid fa-seedling"></i> कोणतीही कोल्ड स्टोरेज साठवणूक नाही, त्यामुळे नैसर्गिक चव टिकून राहते.</li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 
-<div class="section">
-    <h2>Contact</h2>
+<div class="section reveal-element">
+    <h2>Contact Suite</h2>
     <div class="contact-box">
-        <p><i class="fa-solid fa-mobile-screen-button" style="color: var(--accent)"></i> <strong>Mobile:</strong> +91 85519 15295</p>
-        <p><i class="fa-solid fa-location-crosshairs" style="color: var(--accent)"></i> <strong>Location:</strong> Maharashtra, India</p>
+        <p>
+            <i class="fa-solid fa-phone" style="color: #248a58"></i> 
+            <strong>Direct Call:</strong> 
+            <a href="tel:+918551915295" style="color: var(--text-dark); text-decoration: none; font-weight: 800;">+91 85519 15295</a>
+        </p>
+        <p>
+            <i class="fa-brands fa-whatsapp" style="color: #1dd1a1"></i> 
+            <strong>WhatsApp:</strong> 
+            <a href="https://wa.me/918551915295" target="_blank" style="color: var(--text-dark); text-decoration: none; font-weight: 800;">Chat / Call on WhatsApp</a>
+        </p>
+        <p>
+            <i class="fa-solid fa-location-crosshairs" style="color: #248a58"></i> 
+            <strong>Location:</strong> कारंजा (दत्त), Maharashtra, India
+        </p>
     </div>
 </div>
 
 <footer>
-    © Mishraji Mushroom Farm
+    © Mishraji Mushroom Farm Premium Systems
 </footer>
 
-<button class="floating-btn" onclick="document.querySelector('.hero').scrollIntoView()">
-    <i class="fa-solid fa-basket-shopping"></i> Order Now
+<button class="floating-btn" onclick="document.getElementById('orderForm').scrollIntoView()">
+    <i class="fa-solid fa-basket-shopping"></i> Order Fresh Now
 </button>
 
-<div id="toast">Order sent successfully 🚀</div>
+<div id="toast">प्रोसेस होत आहे... 🚀</div>
 
 <script>
+let currentPackCount = 1;
+
+function calculateTotalPrice() {
+    let qtySelector = document.getElementById("qty");
+    let selectedOption = qtySelector.options[qtySelector.selectedIndex];
+    let unitPrice = parseInt(selectedOption.getAttribute("data-price"));
+    
+    let total = unitPrice * currentPackCount;
+    document.getElementById("totalPriceBox").innerText = `एकूण किंमत: ₹${total}`;
+}
+
+function adjustCount(change) {
+    currentPackCount += change;
+    if(currentPackCount < 1) currentPackCount = 1;
+    document.getElementById("packCountDisplay").innerText = currentPackCount;
+    calculateTotalPrice();
+}
+
 function sendOrder(){
-    let qty = document.getElementById("qty").value;
-    let name = document.getElementById("name").value;
-    let phone = document.getElementById("phone").value;
-    let location = document.getElementById("location").value;
+    let qtySelect = document.getElementById("qty");
+    let selectedQtyStr = qtySelect.options[qtySelect.selectedIndex].value;
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let location = document.getElementById("location").value.trim();
+    let phoneFilter = /^[0-9]{10}$/;
 
     if(!name || !phone || !location){
-        alert("Please fill all details");
+        showToast("कृपया सर्व माहिती अचूक भरा!", true);
+        return;
+    }
+    if(!phoneFilter.test(phone.replace(/[\s\-]/g, ""))) {
+        showToast("कृपया अचूक १०-अंकी फोन नंबर टाका!", true);
         return;
     }
 
-    let msg = `Hello, I want to order mushrooms:\nName: ${name}\nPhone: ${phone}\nLocation: ${location}\nQuantity: ${qty}`;
+    let unitPrice = parseInt(qtySelect.options[qtySelect.selectedIndex].getAttribute("data-price"));
+    let finalBill = unitPrice * currentPackCount;
+    let msg = `Hello, I want to order mushrooms:\nName: ${name}\nPhone: ${phone}\nLocation: ${location}\nProduct: ${selectedQtyStr}\nQuantity: ${currentPackCount} Pack(s)\nTotal Bill: ₹${finalBill}`;
 
-    window.open(
-        "https://wa.me/918551915295?text=" + encodeURIComponent(msg),
-        "_blank"
-    );
-
-    showToast();
+    window.open("https://wa.me/918551915295?text=" + encodeURIComponent(msg), "_blank");
+    showToast("ऑर्डर यशस्वीरित्या पाठवली! 🚀", false);
 }
 
-function showToast(){
+function showToast(message, isError = false){
     let toast = document.getElementById("toast");
+    toast.innerText = message;
+    if(isError) {
+        toast.style.background = "#ea580c";
+        toast.style.borderColor = "rgba(234,88,12,0.5)";
+    } else {
+        toast.style.background = "#0f1813";
+        toast.style.borderColor = "rgba(29, 209, 161, 0.4)";
+    }
     toast.classList.add("show");
-
-    setTimeout(()=>{
-        toast.classList.remove("show");
-    }, 2500);
+    setTimeout(()=>{ toast.classList.remove("show"); }, 3000);
 }
 
-/* BASE STRINGS */
+function selectProduct(value) {
+    document.getElementById("qty").value = value;
+    currentPackCount = 1;
+    document.getElementById("packCountDisplay").innerText = currentPackCount;
+    calculateTotalPrice();
+    document.getElementById("orderForm").scrollIntoView();
+    showToast(`निवдलेले उत्पादन: ${value} 🛒`, false);
+}
+
+function toggleFeatureCard(cardElement) {
+    const isExpanded = cardElement.classList.contains('expanded');
+    
+    // Close all feature cards first
+    document.querySelectorAll('.feature-card').forEach(card => {
+        card.classList.remove('expanded');
+        card.querySelector('.card-hint-text').innerHTML = 'अधिक माहितीसाठी क्लिक करा <i class="fa-solid fa-chevron-down"></i>';
+    });
+    
+    // Toggle clicked card
+    if (!isExpanded) {
+        cardElement.classList.add('expanded');
+        cardElement.querySelector('.card-hint-text').innerHTML = 'माहिती लपवा <i class="fa-solid fa-chevron-up"></i>';
+    }
+}
+
+/* ================= EXTRACTION KNOWLEDGE ENGINE BASE ================= */
 const aiData = {
-    recipe: "🍲 AI Suggestion: Try a quick Garlic Butter Mushroom stir-fry! Shave down the fresh oyster shreds. Drop into an open skillet with unsalted butter, minced garlic, and cracked pepper. Sauté for 6 mins until crispy gold!",
-    health: "🧬 Health Stats: Oyster mushrooms carry high quantities of immunity supporting antioxidants, are naturally cholesterol free, packed with dietary fiber, metabolic enzymes, and rich Vitamin D complexes.",
-    storage: "❄️ Storage Protocol: Keep them breathing! Store safely inside a raw paper bag in your refrigerator vegetable bin. Avoid packed air-tight polybags to safely maintain original texture for up to 5-6 days.",
-    weight: "📉 Weight Management: Yes! Oyster mushrooms are incredibly low in calories (around 30 calories per cup), contain virtually zero fat, and are highly rich in water and fiber content, making them perfect for dietary adjustments.",
-    clean: "🧼 Prep Guide: Never soak oyster mushrooms directly in standing water because they act like sponges and get soggy! Instead, gently wipe away surface dust using a clean dry cloth, then lightly rinse right before cooking.",
-    fallback: "🤖 Notice: I have flagged your custom query! For custom pricing models, commercial bulk order quotes, or specific tracking logistics across Maharashtra zones, tap the 'Order on WhatsApp' window button above to safely route to farm staff!"
+    recipe: `🍲 <strong>गार्लिक बटर मशरूम फ्राय (६ मिनिटे):</strong><br>
+    १. ऑयस्टर मशरूम कापून कोरडे करा.<br>
+    २. पॅनमध्ये १ चमचा बटर, बारीक चिरलेला लसूण आणि हिरवी मिरची परता.<br>
+    ३. मशरूम घालून तीव्र आचेवर सोनेरी रंगावर परता. चवीनुसार मीठ व मिरीपूड घाला!`,
+    
+    health: `🧬 <strong>पौष्टिक आणि रोगप्रतिकारक शक्तीवर्धक मूल्ये:</strong><br>
+    • <strong>व्हिटॅमिन डी आणि बी-कॉम्प्लेक्स:</strong> हाडांच्या मजबुतीसाठी आणि ऊर्जेसाठी अत्यंत फायदेशीर.<br>
+    • <strong>अँटीऑक्सिडंट्स (Ergothioneine):</strong> शरीरातील जुने आजार आणि सूज कमी करण्यास मदत करते.<br>
+    • <strong>शून्य कोलेस्टेरॉल:</strong> हृदयविकार आणि हाय बीपी असलेल्या रुग्णांसाठी उत्तम नैसर्गिक आहार.`,
+    
+    storage: `❄️ <strong>मशरूम साठवण्याची अचूक व्यावसायिक पद्धत:</strong><br>
+    • <strong>नियम १:</strong> मशरूम कधीही प्लास्टिक पिशवी किंवा हवाबंद डब्यात ठेवू नका.<br>
+    • <strong>नियम २:</strong> साध्या <strong>कागदी पिशवीत (Paper Bag)</strong> ठेवा आणि फ्रिजच्या खालच्या कप्प्यात (Vegetable Crisper) ठेवा. ५ ते ६ दिवस ताजे राहतात.`,
+    
+    weight: `📉 <strong>वजन आणि फॅट कमी करण्यासाठी नियंत्रण:</strong><br>
+    • १ कप ऑयस्टर मशरूममध्ये फक्त <strong>२८ ते ३० कॅलरीज</strong> असतात.<br>
+    • फॅट्सचे प्रमाण जवळपास ०% आहे आणि मुबलक फायबर असल्यामुळे पोट दीर्घकाळ भरलेले राहते, ज्यामुळे अकाली भूक लागत नाही.`,
+    
+    clean: `🧼 <strong>स्वच्छ करण्याची योग्य पद्धत (चुकीमुळे मशरूम मऊ पडतात!):</strong><br>
+    • ऑयस्टर मशरूम स्पंजसारखे असतात, पाण्यात बुडवून ठेवल्यास ते पाणी शोषून घेतात.<br>
+    • <strong>उपाय:</strong> ओल्या सुती कपड्याने किंवा ब्रशने वरील हलकी धूळ पुसून घ्या. शिजवण्याच्या अगदी १ मिनिट आधी हलकेच धुवून घ्या.`,
+    
+    soup: `🥣 <strong>मशरूम इम्युनिटी बुस्टर सूप:</strong><br>
+    • मशरूम, कांदा आणि लसूण बटरमध्ये परतून घ्या. त्यात थोडे पाणी टाकून उकळवून घ्या. नंतर मिक्सरमधून वाटून घ्या. चवीसाठी काळी मिरी पावडर आणि फ्रेश क्रीम मिक्स करा!`,
+    
+    masala: `🍛 <strong>मशरूम मसाला ग्रेव्ही (हॉटेल स्टाईल):</strong><br>
+    • कांदा, टोमॅटो, आले-लसूण आणि थोडे काजू यांची एकत्र कढईत ग्रेव्ही बनवा. तेल गरम करून हा मसाला परता आणि त्यात ताजे ऑयस्टर मशरूमचे तुकडे घालून ५ मिनिटे वाफेवर शिजवा. चपाती किंवा जिरा राईससोबत सर्व्ह करा.`,
+
+    kids: `👶 <strong>लहान मुलांच्या आहारासाठी फायदे:</strong><br>
+    • ऑयस्टर मशरूम मऊ आणि पचनास सोपे असतात. यातील 'झिंक' आणि 'व्हिटॅमिन डी' लहान मुलांची शारीरिक वाढ आणि मानसिक एकाग्रता वाढवण्यास प्रचंड मदत करतात. तुम्ही हे सूप किंवा पराठ्यामध्ये मिक्स करून देऊ शकता.`,
+
+    business: `🍄 <strong>घाऊक (Bulk) खरेदी आणिホットेल सप्लाय:</strong><br>
+    • आम्ही लग्नकार्ये, हॉटेल्स, केटरर्स आणि किरकोळ भाजी विक्रेत्यांना थेट फार्ममधून घाऊक दरात मशरूम सप्लाय करतो. व्यावसायिक सवलतींचे दरपत्रक मिळवण्यासाठी कृपया वरील <strong>'Order on WhatsApp'</strong> वर क्लिक करा.`,
+
+    delivery: `📍 <strong>डिलिव्हरी आणि वाहतूक क्षेत्र:</strong><br>
+    • <strong>कारंजा (दत्त)</strong> शहरात आणि आजूबाजूच्या स्थानिक भागात घरपोच जलद डिलिव्हरी उपलब्ध आहे. अमरावती किंवा इतर जिल्ह्यांसाठी बल्क ऑर्डर्स ट्रॅव्हल्स किंवा मालवाहतुकीने पाठवल्या जातात.`,
+    
+    fallback: `🤖 <strong>सल्ला व सानुकूल मदत:</strong><br>
+    • तुमच्या प्रश्नाचे अचूक वर्गीकरण करता आले नाही! व्यावसायिक शेती माहिती, मोठ्या ऑर्डर्स किंवा इतर सल्ल्यासाठी वरील <strong>'Order on WhatsApp'</strong> बटणावर क्लिक करून थेट आमच्याशी संपर्क साधा.`
 };
 
+const alternateChips = {
+    recipe: [
+        { label: "मशरूम सूप रेसिपी 🥣", key: "soup" },
+        { label: "मशरूम मसाला भाजी 🍛", key: "masala" },
+        { label: "मुख्य मेनूवर जा ↩️", key: "RESET" }
+    ],
+    soup: [{ label: "मुख्य मेनूवर जा ↩️", key: "RESET" }],
+    masala: [{ label: "मुख्य मेनूवर जा ↩️", key: "RESET" }],
+    health: [
+        { label: "लहान मुलांसाठी फायदे? 👶", key: "kids" },
+        { label: "मुख्य मेनूवर जा ↩️", key: "RESET" }
+    ],
+    kids: [{ label: "मुख्य मेनूवर जा ↩️", key: "RESET" }]
+};
+
+const defaultChips = [
+    { label: "झटपट रेसिपी गाईड 🍲", key: "recipe" },
+    { label: "पौष्टिक मूल्ये 🧬", key: "health" },
+    { label: "योग्य साठवणूक ❄️", key: "storage" },
+    { label: "वजन कमी करण्यासाठी? 📉", key: "weight" },
+    { label: "कसे स्वच्छ करावे? 🧼", key: "clean" }
+];
+
 let typingTimer = null;
+
+function handleChipClick(element, key) {
+    let allChips = document.querySelectorAll('.ai-btn');
+    allChips.forEach(c => c.classList.remove('active-chip'));
+    if(element) element.classList.add('active-chip');
+    askAI(key);
+}
+
+function mutateContextChips(contextKey) {
+    const chipContainer = document.getElementById("aiDynamicActionContainer");
+    const structuralTargets = alternateChips[contextKey] || defaultChips;
+    
+    chipContainer.innerHTML = "";
+    structuralTargets.forEach(chip => {
+        const btn = document.createElement("button");
+        btn.className = "ai-btn";
+        if(chip.key === contextKey) btn.classList.add('active-chip');
+        btn.innerHTML = chip.label;
+        btn.onclick = (e) => {
+            if(chip.key === "RESET") {
+                mutateContextChips("RESET");
+                document.getElementById("aiResponse").innerText = "माहिती मिळवण्यासाठी वरीलपैकी कोणत्याही बटणावर क्लिक करा किंवा तुमचा प्रश्न टाईप करा!";
+                document.getElementById("aiStatus").style.display = "none";
+            } else {
+                handleChipClick(btn, chip.key);
+            }
+        };
+        chipContainer.appendChild(btn);
+    });
+}
 
 function askAI(type) {
     let responseBox = document.getElementById("aiResponse");
     let statusBox = document.getElementById("aiStatus");
+    let userNameField = document.getElementById("name").value.trim();
     
-    if(typingTimer) clearInterval(typingTimer);
+    if(typingTimer) clearTimeout(typingTimer);
     
     responseBox.style.opacity = "0.4";
     statusBox.style.display = "block";
-    statusBox.innerText = "⚡ MISHRAJI-BOT PROCESSING DATA...";
+    statusBox.innerText = "⚡ मिश्राजी AI विश्लेषण करत आहे...";
     
     setTimeout(() => {
         responseBox.style.opacity = "1";
-        statusBox.innerText = "✨ DYNAMIC RESPONSE GENERATED:";
+        statusBox.innerText = "✨ AI कडून मिळालेले उत्तर:";
         
-        let fullText = aiData[type] || aiData['fallback'];
-        responseBox.innerHTML = ""; // Clear existing text safely
+        let baseText = aiData[type] || aiData['fallback'];
+        if(userNameField && type !== 'fallback') {
+            baseText = `<span style='background: #144d31; color: #1dd1a1; padding: 2px 8px; border-radius: 4px; font-size: 13px; font-weight: bold;'>ग्राहक: ${userNameField}</span><br><br>` + baseText;
+        }
         
-        let index = 0;
-        typingTimer = setInterval(() => {
-            if (index < fullText.length) {
-                let char = fullText.charAt(index);
-                
-                // CRITICAL TYPEWRITER SPACE CONVERSION FIX
-                if (char === " ") {
-                    responseBox.innerHTML += "&nbsp;";
+        responseBox.innerHTML = ""; 
+        let tokens = [];
+        let regex = /(<\/?[^>]+>|[^<]+)/g;
+        let match;
+        while ((match = regex.exec(baseText)) !== null) {
+            tokens.push(match[0]);
+        }
+        
+        let tokenIndex = 0;
+        let charIndex = 0;
+        let currentVisibleNode = responseBox;
+
+        function advancedTypewriterStep() {
+            if (tokenIndex < tokens.length) {
+                let token = tokens[tokenIndex];
+                if (token.startsWith("<")) {
+                    let tempDiv = document.createElement("div");
+                    tempDiv.innerHTML = token;
+                    let tagNode = tempDiv.firstChild;
+                    
+                    if (token.startsWith("</")) {
+                        currentVisibleNode = responseBox; 
+                    } else {
+                        responseBox.appendChild(tagNode);
+                        if (!token.endsWith("/>") && token !== "<br>") {
+                            currentVisibleNode = tagNode; 
+                        }
+                    }
+                    tokenIndex++;
+                    advancedTypewriterStep();
                 } else {
-                    responseBox.innerHTML += char;
+                    if (charIndex < token.length) {
+                        currentVisibleNode.innerHTML += token.charAt(charIndex) === " " ? "&nbsp;" : token.charAt(charIndex);
+                        charIndex++;
+                        let delay = token.charAt(charIndex-1) === "!" || token.charAt(charIndex-1) === "." ? 180 : 8;
+                        typingTimer = setTimeout(advancedTypewriterStep, delay);
+                    } else {
+                        charIndex = 0;
+                        tokenIndex++;
+                        advancedTypewriterStep();
+                    }
                 }
-                index++;
             } else {
-                clearInterval(typingTimer);
-                statusBox.innerText = "● AI ENGINE STANDBY";
+                statusBox.innerText = "● AI असिस्टंट ऑनलाईन";
+                mutateContextChips(type);
             }
-        }, 15);
-        
-    }, 450);
+        }
+        advancedTypewriterStep();
+    }, 350);
 }
 
 function handleCustomQuery() {
@@ -774,15 +1204,33 @@ function handleCustomQuery() {
     let query = inputEl.value.toLowerCase().trim();
     if(!query) return;
 
-    if(query.includes("recipe") || query.includes("cook") || query.includes("eat") || query.includes("dish")) {
-        askAI("recipe");
-    } else if (query.includes("health") || query.includes("benefit") || query.includes("nutrition") || query.includes("protein") || query.includes("vitamin")) {
+    document.querySelectorAll('.ai-btn').forEach(c => c.classList.remove('active-chip'));
+
+    if(query.includes("recipe") || query.includes("cook") || query.includes("dish") || query.includes("रेसिपी") || query.includes("कसे बनवायचे") || query.includes("भाजी") || query.includes("पदार्थ") || query.includes("बनवा")) {
+        if (query.includes("soup") || query.includes("सूप")) {
+            askAI("soup");
+        } else if (query.includes("masala") || query.includes("मसाला") || query.includes("ग्रेव्ही")) {
+            askAI("masala");
+        } else {
+            askAI("recipe");
+        }
+    } else if (query.includes("soup") || query.includes("सूप") || query.includes("पिणे")) {
+        askAI("soup");
+    } else if (query.includes("masala") || query.includes("मसाला") || query.includes("ग्रेव्ही")) {
+        askAI("masala");
+    } else if (query.includes("child") || query.includes("kid") || query.includes("baby") || query.includes("लहान मुल") || query.includes("बाळ") || query.includes("मुलांना")) {
+        askAI("kids");
+    } else if (query.includes("business") || query.includes("wholesale") || query.includes("bulk") || query.includes("हॉटेल") || query.includes("घाऊक") || query.includes("व्यापार") || query.includes("शेती") || query.includes("रेट")) {
+        askAI("business");
+    } else if (query.includes("delivery") || query.includes("where") || query.includes("address") || query.includes("पत्ता") || query.includes("डिलिव्हरी") || query.includes("कुठे") || query.includes("गाव")) {
+        askAI("delivery");
+    } else if (query.includes("health") || query.includes("benefit") || query.includes("nutrition") || query.includes("protein") || query.includes("vitamin") || query.includes("फायदे") || query.includes("आरोग्य") || query.includes("गुणकारी") || query.includes("शक्ती")) {
         askAI("health");
-    } else if (query.includes("store") || query.includes("fridge") || query.includes("days") || query.includes("fresh") || query.includes("spoil")) {
+    } else if (query.includes("store") || query.includes("fridge") || query.includes("days") || query.includes("fresh") || query.includes("साठवणूक") || query.includes("टिकवणे") || query.includes("फ्रिज") || query.includes("खराब")) {
         askAI("storage");
-    } else if (query.includes("weight") || query.includes("fat") || query.includes("diet") || query.includes("calories")) {
+    } else if (query.includes("weight") || query.includes("fat") || query.includes("diet") || query.includes("calories") || query.includes("वजन") || query.includes("डाएट") || query.includes("चरबी") || query.includes("बारीक")) {
         askAI("weight");
-    } else if (query.includes("clean") || query.includes("wash") || query.includes("dirty") || query.includes("prep")) {
+    } else if (query.includes("clean") || query.includes("wash") || query.includes("dirty") || query.includes("स्वच्छ") || query.includes("धुणे") || query.includes("साफ")) {
         askAI("clean");
     } else {
         askAI("fallback");
@@ -791,20 +1239,15 @@ function handleCustomQuery() {
     inputEl.value = "";
 }
 
-/* Scroll Intersections Engine */
-const observer = new IntersectionObserver(entries=>{
-    entries.forEach(entry=>{
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
         if(entry.isIntersecting){
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = "translateY(0)";
+            entry.target.classList.add("visible");
         }
     });
 }, { threshold: 0.05 });
 
-document.querySelectorAll(".card, .section, .order-container").forEach(el=>{
-    el.style.opacity = 0;
-    el.style.transform = "translateY(25px)";
-    el.style.transition = "all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1)";
+document.querySelectorAll(".reveal-element").forEach(el => {
     observer.observe(el);
 });
 </script>
